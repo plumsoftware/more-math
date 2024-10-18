@@ -115,4 +115,20 @@ class MatrixExtensionKtTest {
 
         assertEquals(expected = 0.0, actual = determinant)
     }
+
+    @Test
+    fun transposeTest() {
+        val matrix1 = Math.matrixOf<Int>(
+            listOf(1, 2, 3),
+            listOf(4, 5, 6)
+        ).transpose()
+
+        val expected = Math.matrixOf<Int>(
+            listOf(1, 4),
+            listOf(2, 5),
+            listOf(3, 6)
+        )
+
+        assertEquals(expected = expected, actual = matrix1)
+    }
 }

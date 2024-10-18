@@ -29,3 +29,12 @@ fun <R : Number> Matrix<R>.determinant(): Double {
 
     return det
 }
+
+fun <R : Number> Matrix<R>.transpose(): Matrix<R> {
+    val transposedRows = Array(rows[0].size) { rowIndex ->
+        List(rows.size) { colIndex ->
+            this[colIndex, rowIndex]
+        }
+    }
+    return Matrix(*transposedRows)
+}
