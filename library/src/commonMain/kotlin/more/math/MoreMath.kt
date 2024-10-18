@@ -11,6 +11,7 @@ object MoreMath {
     private val tetractionParent = TetractionParent()
     private val combinatoricsParent = CombinatoricsParent()
 
+    //region::Algebra
     fun factorial(n: Int): Long {
         factorialParent.verifyFactorial(n)
         return if (n == 0) 1L else n * factorial(n - 1)
@@ -34,6 +35,20 @@ object MoreMath {
         return numbers.average()
     }
 
+    fun standardDeviation(vararg numbers: Double): Double {
+        val avg = numbers.average()
+        val sumOfSquares = numbers.sumOf { (it - avg) * (it - avg) }
+        return kotlin.math.sqrt(sumOfSquares / (numbers.size - 1))
+    }
+
+    //Нок
+    fun gcd(a: Int, b: Int): Int {
+        require(a >= 0 && b >= 0) { "Both numbers must be non-negative" }
+        return if (b == 0) a else gcd(b, a % b)
+    }
+    //endregion
+
+    //region::Combinatorics
     fun combinations(n: Int, k: Int): Long {
         combinatoricsParent.verify(n, k)
         return factorial(n) / (factorial(k) * factorial(n - k))
@@ -48,10 +63,5 @@ object MoreMath {
         combinatoricsParent.verify(n, k)
         return factorial(n) / (factorial(k) * factorial(n - k))
     }
-
-    fun standardDeviation(vararg numbers: Double): Double {
-        val avg = numbers.average()
-        val sumOfSquares = numbers.sumOf { (it - avg) * (it - avg) }
-        return kotlin.math.sqrt(sumOfSquares / (numbers.size - 1))
-    }
+    //endregion
 }
