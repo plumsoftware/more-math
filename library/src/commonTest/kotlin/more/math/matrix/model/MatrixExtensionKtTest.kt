@@ -4,6 +4,7 @@ import more.math.matrixOf
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFails
 
 class MatrixExtensionKtTest {
 
@@ -130,5 +131,57 @@ class MatrixExtensionKtTest {
         )
 
         assertEquals(expected = expected, actual = matrix1)
+    }
+
+    @Test
+    fun testFails() {
+        assertFails {
+            matrix[99, 1]
+        }
+        assertFails {
+            matrix[1, 99]
+        }
+        assertFails {
+            val matrix1 = matrixOf<Int>(
+                listOf(1, 2, 3),
+                listOf(4, 5, 6)
+            )
+            val matrix2 = matrixOf<Int>(
+                listOf(1, 4),
+                listOf(2, 5),
+                listOf(3, 6)
+            )
+            matrix1 + matrix2
+        }
+        assertFails {
+            val matrix1 = matrixOf<Int>(
+                listOf(1, 2, 3),
+                listOf(4, 5, 6)
+            )
+            val matrix2 = matrixOf<Int>(
+                listOf(1, 4),
+                listOf(2, 5),
+                listOf(3, 6)
+            )
+            matrix1 - matrix2
+        }
+
+        assertFails {
+            val matrix1 = matrixOf<Int>(
+                listOf(1, 2),
+                listOf(3, 4),
+                listOf(5, 6),
+                listOf(7, 8)
+            )
+            val matrix2 = matrixOf<Int>(
+                listOf(1, 4),
+                listOf(2, 5),
+                listOf(3, 6)
+            )
+            matrix1 * matrix2
+        }
+        assertFails {
+            matrix.determinant()
+        }
     }
 }

@@ -41,4 +41,12 @@ class Vector2Test {
         val res = vector1 / vector2
         assertEquals(expected = Vector2(x = 1/3, y = 1/2), actual = res)
     }
+
+    @Test
+    fun length() {
+        val vector1 = vector2Of(8.0, 6.0)
+
+        val res = vector1.length()
+        assertEquals(expected = 10.0, actual = res)
+    }
 }
