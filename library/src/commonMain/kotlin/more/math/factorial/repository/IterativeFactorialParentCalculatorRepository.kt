@@ -3,7 +3,7 @@ package more.math.factorial.repository
 import kotlinx.coroutines.Deferred
 import kotlin.coroutines.CoroutineContext
 
-interface RecursiveFactorialParentCalculatorRepository {
+interface IterativeFactorialParentCalculatorRepository {
     fun calculate(n: Int): Long
 
     //Async
