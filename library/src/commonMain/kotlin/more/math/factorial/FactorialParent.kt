@@ -1,6 +1,6 @@
 package more.math.factorial
 
-abstract class FactorialParent {
+class FactorialParent {
     fun verifyFactorial(n: Int) {
         require(n >= 0) {
             "Factorial must be more than zero"
