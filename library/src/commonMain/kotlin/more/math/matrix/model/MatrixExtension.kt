@@ -2,10 +2,6 @@ package more.math.matrix.model
 
 import kotlin.math.pow
 
-inline fun <reified R> matrixOf(vararg row: List<Any>): Matrix<R> {
-    return Matrix(*row.map { it.map { elem -> elem as R } }.toTypedArray())
-}
-
 fun <R : Number> Matrix<R>.determinant(): Double {
     isSquare(matrix = this)
 

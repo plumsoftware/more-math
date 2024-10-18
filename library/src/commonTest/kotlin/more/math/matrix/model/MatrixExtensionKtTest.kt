@@ -1,5 +1,6 @@
 package more.math.matrix.model
 
+import more.math.Math
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -10,7 +11,7 @@ class MatrixExtensionKtTest {
 
     @BeforeTest
     fun setUp() {
-        matrix = matrixOf(
+        matrix = Math.matrixOf(
             listOf(1, 2.5, 3),
             listOf(4.0, 5, 6)
         )
@@ -24,7 +25,7 @@ class MatrixExtensionKtTest {
 
     @Test
     fun sumMatrix() {
-        val matrix1 = matrixOf<Int>(
+        val matrix1 = Math.matrixOf<Int>(
             listOf(1, 2, 3),
             listOf(4, 5, 6)
         )
@@ -36,7 +37,7 @@ class MatrixExtensionKtTest {
 
         val sumMatrix = matrix1 + matrix2
 
-        val expectedMatrix = matrixOf<Int>(
+        val expectedMatrix = Math.matrixOf<Int>(
             listOf(8, 10, 12),
             listOf(14, 16, 18)
         )
@@ -46,7 +47,7 @@ class MatrixExtensionKtTest {
 
     @Test
     fun minusTest() {
-        val matrix1 = matrixOf<Int>(
+        val matrix1 = Math.matrixOf<Int>(
             listOf(1, 2, 3),
             listOf(4, 5, 6)
         )
@@ -58,7 +59,7 @@ class MatrixExtensionKtTest {
 
         val minusMatrix = matrix1 - matrix2
 
-        val expectedMatrix = matrixOf<Int>(
+        val expectedMatrix = Math.matrixOf<Int>(
             listOf(-6, -6, -6),
             listOf(-6, -6, -6)
         )
@@ -68,7 +69,7 @@ class MatrixExtensionKtTest {
 
     @Test
     fun timesTest() {
-        val matrix1 = matrixOf<Double>(
+        val matrix1 = Math.matrixOf<Double>(
             listOf(1.0, 2.0, 3.0),
             listOf(4.0, 5.0, 6.0)
         )
@@ -81,7 +82,7 @@ class MatrixExtensionKtTest {
 
         val timesMatrix = matrix1 * matrix2
 
-        val expectedMatrix = matrixOf<Double>(
+        val expectedMatrix = Math.matrixOf<Double>(
             listOf(58.0, 64.0),
             listOf(139.0, 154.0)
         )
@@ -91,7 +92,7 @@ class MatrixExtensionKtTest {
 
     @Test
     fun squareDeterminant() {
-        val matrix = matrixOf<Double>(
+        val matrix = Math.matrixOf<Double>(
             listOf(1.0, 2.0),
             listOf(3.0, 4.0)
         )
@@ -103,7 +104,7 @@ class MatrixExtensionKtTest {
 
     @Test
     fun squareBigDeterminant() {
-        val matrix = matrixOf<Double>(
+        val matrix = Math.matrixOf<Double>(
             listOf(1.0, 2.0, 3.0, 4.0),
             listOf(5.0, 6.0, 7.0, 8.0),
             listOf(9.0, 10.0, 11.0, 12.0),
