@@ -19,4 +19,10 @@ abstract class MatrixParent {
             "Number of columns of the first matrix must be equal to the number of rows of the second matrix."
         }
     }
+
+    fun <R> isSquare(matrix: Matrix<R>) {
+        require(matrix.rows.size == matrix.rows[0].size) {
+            "Number of rows must be equals number of columns."
+        }
+    }
 }

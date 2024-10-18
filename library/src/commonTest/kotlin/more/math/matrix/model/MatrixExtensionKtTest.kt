@@ -88,4 +88,30 @@ class MatrixExtensionKtTest {
 
         assertEquals(expected = expectedMatrix, actual = timesMatrix)
     }
+
+    @Test
+    fun squareDeterminant() {
+        val matrix = matrixOf<Double>(
+            listOf(1.0, 2.0),
+            listOf(3.0, 4.0)
+        )
+
+        val determinant = matrix.determinant()
+
+        assertEquals(expected = -2.0, actual = determinant)
+    }
+
+    @Test
+    fun squareBigDeterminant() {
+        val matrix = matrixOf<Double>(
+            listOf(1.0, 2.0, 3.0, 4.0),
+            listOf(5.0, 6.0, 7.0, 8.0),
+            listOf(9.0, 10.0, 11.0, 12.0),
+            listOf(13.0, 14.0, 15.0, 16.0),
+        )
+
+        val determinant = matrix.determinant()
+
+        assertEquals(expected = 0.0, actual = determinant)
+    }
 }
