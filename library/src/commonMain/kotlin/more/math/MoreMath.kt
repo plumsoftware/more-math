@@ -1,18 +1,17 @@
 package more.math
 
-import more.math.factorial.interactor.SimpleFactorial
-import more.math.matrix.model.Matrix
+import more.math.factorial.FactorialParent
 import kotlin.math.pow
 
-object Math {
-    val simpleFactorial = SimpleFactorial()
-
+object MoreMath : FactorialParent() {
     fun factorial(n: Int) : Long {
+        verifyFactorial(n)
         return if (n == 0) 1L else n * factorial(n - 1)
     }
 
-    inline fun <reified R> matrixOf(vararg row: List<Any>): Matrix<R> {
-        return Matrix(*row.map { it.map { elem -> elem as R } }.toTypedArray())
+    fun factorial(n: Long) : Long {
+        verifyFactorial(n)
+        return if (n == 0L) 1L else n * factorial(n - 1L)
     }
 
     fun tetraction(number: Double, other: Int) : Double {
