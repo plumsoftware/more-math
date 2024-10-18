@@ -31,7 +31,7 @@ publishing {
             developers {
                 developer {
                     id.set("https://t.me/Sl1vka")
-                    name.set("Slava")
+                    name.set("Vyacheslav Sergeevich")
                     organization.set("Plumsoftware")
                     organizationUrl.set("https://github.com/plumsoftware/more-math")
                 }
