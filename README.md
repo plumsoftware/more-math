@@ -10,7 +10,7 @@ Kotlin multiplatform library adding mathematical operations with matrices, vecto
 # Overview
 This library provides functionality to work with Vector on a plane, Matrix, Combinatorics.
 
-* [Matrix] (#Matrix)
+* [Matrix](#Matrix)
 
 ### Matrix
 To create matrix just write:
