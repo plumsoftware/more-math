@@ -35,17 +35,17 @@ val res = MoreMath.tetraction(2.0, 3)
 
 
 ### Other
-To get least common multiple
+To get **least common multiple**
 ```kotlin
 val res = MoreMath.gcd(13, 17)
 ```
 
-Get a standart deviation
+Get a **standart deviation**
 ```kotlin
 val res = MoreMath.standardDeviation(1.0, 2.0, 3.0)
 ```
 
-Get a average
+Get a **average**
 ```kotlin
 val res = MoreMath.average(1, 2, 3)
 ```
