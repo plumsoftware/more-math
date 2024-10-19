@@ -15,5 +15,7 @@ jobs:
         with:
           java-version: 21
           cache: gradle
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
       - name: Unit Test
         run: ./gradlew :library:testDebugUnitTest
