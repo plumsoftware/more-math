@@ -4,6 +4,7 @@ kotlin = "2.0.0"
 nexus-publish = "2.0.0"
 android-minSdk = "24"
 android-compileSdk = "34"
+mavenPublish = "0.29.0"
 
 #Coroutines
 kotlin-coroutines = "1.9.0"
@@ -19,3 +20,4 @@ kotlin-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coro
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+vanniktech-mavenPublish = {id = "com.vanniktech.maven.publish", version.ref = "mavenPublish"}
