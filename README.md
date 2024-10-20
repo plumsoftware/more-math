@@ -5,61 +5,61 @@
 ![More Math logo](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/logo.png)
 
 # More math
-Kotlin multiplatform library adding mathematical operations with matrices, vectors, combinatorics and much more.
+Мультиплатформенная библиотека Kotlin, добавляющая математические операции с матрицами, векторами, комбинаторикой и многим другим.
 
-# Overview
-This library provides functionality to work with Vector on a plane, Matrix, Combinatorics.
+# Содержание
+Эта библиотека предоставляет функциональность для работы с вектором на плоскости, матрицей, комбинаторикой.
 
-* [Factorial](#Factorial)
-* [Tetraction](#Tetraction)
-* [Other](#Other)
-* [Matrix](#Matrix)
-* [Vector on plane](#Vector)
-* [Combinatorics](#Combinatorics)
+* [Факториал](#Факториал)
+* [Тетрация](#Тетрация)
+* [Остальное](#Другое)
+* [Матрица](#Матрица)
+* [Вектор на плоскости](#Вектор)
+* [Комбинаторика](#Комбинаторика)
 
 
 
-### Factorial
-Use factorial like this
+### Факториал
+Вычисление факториала
 ```kotlin
 val res = MoreMath.factorial(3)
 ```
 
 
 
-### Tetraction
-To get tetraction use this
+### Тетрация
+Вычислить тетрацию
 ```kotlin
 val res = MoreMath.tetraction(2.0, 3)
 ```
 
 
-### Other
-To get **least common multiple**
+### Другое
+Чтобы вычислить **наименьшее общее кратное** двух чисел
 ```kotlin
 val res = MoreMath.gcd(13, 17)
 ```
 
-Get a **standart deviation**
+Вычисление **стандартного отклонения** ряда чисел
 ```kotlin
 val res = MoreMath.standardDeviation(1.0, 2.0, 3.0)
 ```
 
-Get a **average**
+**Срднее значение**
 ```kotlin
 val res = MoreMath.average(1, 2, 3)
 ```
 
 
-### Matrix
-To create matrix just write
+### Матрица
+Создать матрицу можно двумя способами
 ```kotlin
 val matrix = matrixOf<Int> (
   listOf(1, 2),
   listOf(3, 4)
 )
 ```
-or 
+или 
 ```kotlin
 val matrix = Matrix<Int> (
   listOf(1, 2),
@@ -67,7 +67,7 @@ val matrix = Matrix<Int> (
 )
 ```
 
-You can ```+```, ```-```, ```-``` matrix. Also ```equals()``` and ```hashCode``` are available.
+Операторы, доступныее для матриц ```+```, ```-```, ```-```. Также можно использовать ```equals()``` и ```hashCode```.
 ```kotlin
 val matrix1 = matrixOf<Int> (
   listOf(1, 2),
@@ -83,31 +83,31 @@ val times = matrix1 * matrix2
 val minus = matrix1 - matrix2
 ```
 
-Get a determinant
+Вычислить определитель матрицы
 ```kotlin
 val det = matrix.determinant()
 ```
 
-Transpose matrix
+Транспонировать матрицу
 ```kotlin
 val transposedMatrix = matrix.transpose()
 ```
 
 
 
-### Vector
+### Вектор
 
-#### On plane
-To create vector
+#### Вектор на плоскости
+Создание вектора аналогично созданию матрицы
 ```kotlin
 val vector2 = vector2Of(1 , 2)
 ```
-or
+или
 ```kotlin
 val vector2 = Vector2(1 , 2)
 ```
 
-You can ```+```, ```-```, ```-```, ```/``` vector2. Also ```equals()``` and ```length()``` are available.
+С векторами на плоскости доступны следующие операторы ```+```, ```-```, ```-```, ```/```. Также Вы можете использовать ```equals()``` и ```length()```.
 ```kotlin
 val vector1 = vector2Of(1, 2)
 val vector2 = vector2Of(3, 4)
@@ -121,14 +121,14 @@ val length = vector1.length()
 
 
 
-### Combinatorics
+### Комбинаторика
 
-Combinations
+Комбинации
 ```kotlin
 val res = MoreMath.combinations(5, 2)
 ```
 
-Permutations
+Перестановки
 ```kotlin
 val res = MoreMath.binomialCoefficient(5, 2)
 ```
