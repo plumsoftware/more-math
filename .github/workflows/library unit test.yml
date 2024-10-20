@@ -1,0 +1,21 @@
+name: Library unit test
+
+on:
+  pull_request:
+    paths:
+      - 'library/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 21
+          cache: gradle
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - name: Unit Test
+        run: ./gradlew :library:testDebugUnitTest
