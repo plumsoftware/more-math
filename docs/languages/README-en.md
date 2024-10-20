@@ -123,12 +123,17 @@ val length = vector1.length()
 
 ### Combinatorics
 
-Combinations
+Combinations of 5 elements by 2 elements 
 ```kotlin
 val res = MoreMath.combinations(5, 2)
 ```
 
-Permutations
+Placements
+```kotlin
+val res = MoreMath.placements(5, 2)
+```
+
+Binomial coefficient
 ```kotlin
 val res = MoreMath.binomialCoefficient(5, 2)
 ```
