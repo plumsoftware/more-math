@@ -3,7 +3,7 @@ plugins {
 }
 
 allprojects {
-    group = "ru.slava.kmp.more-math"
+    group = "more-math"
     version = "0.0.1"
 }
 

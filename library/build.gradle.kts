@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     id("module.publication")
+    id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
 kotlin {

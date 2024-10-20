@@ -31,13 +31,15 @@ publishing {
             developers {
                 developer {
                     id.set("https://t.me/Sl1vka")
-                    name.set("Vyacheslav Sergeevich")
+                    name.set("Vyacheslav Deych")
                     organization.set("Plumsoftware")
-                    organizationUrl.set("https://github.com/plumsoftware/more-math")
+                    organizationUrl.set("https://github.com/plumsoftware")
                 }
             }
             scm {
                 url.set("https://github.com/plumsoftware/more-math")
+                connection.set("scm:git:git://github.com/plumsoftware/more-math")
+                developerConnection = "scm:git:ssh://git@github.com:plumsoftware/more-math.git"
             }
         }
     }
