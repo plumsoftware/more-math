@@ -126,12 +126,17 @@ val length = vector1.length()
 
 ### Комбинаторика
 
-Комбинации
+Комбинации из 5 элементов по 2 элемента
 ```kotlin
 val res = MoreMath.combinations(5, 2)
 ```
 
-Перестановки
+Размещения
+```kotlin
+val res = MoreMath.placements(5, 2)
+```
+
+Биноменальный коэффициент
 ```kotlin
 val res = MoreMath.binomialCoefficient(5, 2)
 ```
