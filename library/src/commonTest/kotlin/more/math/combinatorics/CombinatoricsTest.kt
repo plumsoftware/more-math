@@ -18,10 +18,10 @@ class CombinatoricsTest {
 
     @Test
     fun testPermutations() {
-        assertEquals(1, MoreMath.permutations(0, 0))
-        assertEquals(5, MoreMath.permutations(5, 1))
-        assertEquals(20, MoreMath.permutations(5, 2))
-        assertEquals(120, MoreMath.permutations(5, 5))
+        assertEquals(1, MoreMath.placements(0, 0))
+        assertEquals(5, MoreMath.placements(5, 1))
+        assertEquals(20, MoreMath.placements(5, 2))
+        assertEquals(120, MoreMath.placements(5, 5))
     }
 
     @Test
@@ -38,7 +38,7 @@ class CombinatoricsTest {
             MoreMath.combinations(5, 6)
         }
         assertFails {
-            MoreMath.permutations(5, 6)
+            MoreMath.placements(5, 6)
         }
         assertFails {
             MoreMath.binomialCoefficient(5, 6)

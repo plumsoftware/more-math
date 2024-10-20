@@ -54,7 +54,7 @@ object MoreMath {
         return factorial(n) / (factorial(k) * factorial(n - k))
     }
 
-    fun permutations(n: Int, k: Int): Long {
+    fun placements(n: Int, k: Int): Long {
         combinatoricsParent.verify(n, k)
         return factorial(n) / factorial(n - k)
     }
