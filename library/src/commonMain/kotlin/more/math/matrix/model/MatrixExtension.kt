@@ -2,7 +2,7 @@ package more.math.matrix.model
 
 import kotlin.math.pow
 
-fun <R : Number> Matrix<R>.determinant(): Double {
+public fun <R : Number> Matrix<R>.determinant(): Double {
     isSquare(matrix = this)
 
     if (rows.size == 1) {
@@ -30,7 +30,7 @@ fun <R : Number> Matrix<R>.determinant(): Double {
     return det
 }
 
-fun <R : Number> Matrix<R>.transpose(): Matrix<R> {
+public fun <R : Number> Matrix<R>.transpose(): Matrix<R> {
     val transposedRows = Array(rows[0].size) { rowIndex ->
         List(rows.size) { colIndex ->
             this[colIndex, rowIndex]

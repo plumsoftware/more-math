@@ -2,7 +2,7 @@ package more.math.matrix.model
 
 import more.math.matrix.parent.MatrixParent
 
-class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
+public class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
 
     operator fun get(rowIndex: Int, columnIndex: Int): R {
         verify(rows = rows, rowIndex = rowIndex, columnIndex = columnIndex)
