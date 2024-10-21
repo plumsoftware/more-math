@@ -13,7 +13,7 @@
 Чтобы подключить библиотеку нужно добавить строчки ниже в файл ```build.gradle.kts``` вашего мультиплатформенного модуля
 ```kotlin
 dependencies {
-    implementation("ru.plumsoftware:more-math:<version>")
+    implementation("io.github.plumsoftware:more-math:<version>")
 }
 ```
 
