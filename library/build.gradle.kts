@@ -57,7 +57,7 @@ android {
 
 mavenPublishing {
 
-    group = "ru.plumsoftware"
+    group = "io.github.plumsoftware"
     version = "0.0.4"
 
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
