@@ -5,9 +5,20 @@
 ![More Math logo](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/logo.png)
 
 # More math
+
 Kotlin multiplatform library adding mathematical operations with matrices, vectors, combinatorics and much more.
 
+## Add
+
+To connect the library, you need to add the lines below to the ```build.gradle.kts``` file of your multiplatform module
+```kotlin
+dependencies {
+    implementation("ru.plumsoftware:more-math:<version>")
+}
+```
+
 # Overview
+
 This library provides functionality to work with Vector on a plane, Matrix, Combinatorics.
 
 * [Factorial](#Factorial)
@@ -17,7 +28,7 @@ This library provides functionality to work with Vector on a plane, Matrix, Comb
 * [Vector on plane](#Vector)
 * [Combinatorics](#Combinatorics)
 
-
+## Usage
 
 ### Factorial
 Use factorial like this

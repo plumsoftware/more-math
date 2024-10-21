@@ -4,13 +4,25 @@
 
 ![More Math logo](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/logo.png)
 
-# More math
+## More math
+
 Мультиплатформенная библиотека Kotlin, добавляющая математические операции с матрицами, векторами, комбинаторикой и многим другим.
 
-# Документация (Documentation)
+## Подключение
+
+Чтобы подключить библиотеку нужно добавить строчки ниже в файл ```build.gradle.kts``` вашего мультиплатформенного модуля
+```kotlin
+dependencies {
+    implementation("ru.plumsoftware:more-math:<version>")
+}
+```
+
+## Документация на других языках (Documentation)
+
 + [English](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/languages/README-en.md)
 
-# Содержание
+## Содержание
+
 Эта библиотека предоставляет функциональность для работы с вектором на плоскости, матрицей, комбинаторикой.
 
 * [Факториал](#Факториал)
@@ -20,7 +32,7 @@
 * [Вектор на плоскости](#Вектор)
 * [Комбинаторика](#Комбинаторика)
 
-
+## Возможности
 
 ### Факториал
 Вычисление факториала
