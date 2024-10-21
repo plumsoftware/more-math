@@ -9,7 +9,15 @@ plugins {
 }
 
 kotlin {
-    jvm()
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
+
     androidTarget {
         publishLibraryVariants("release")
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -17,18 +25,19 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+
     linuxX64()
+    linuxArm64()
+
+    applyDefaultHierarchyTemplate()
 
     sourceSets {
         val commonMain by getting {
-            dependencies {
-                //Coroutines
-                implementation(libs.kotlin.coroutines)
-                implementation(libs.kotlin.coroutines.test)
-            }
+            dependencies {}
         }
         val commonTest by getting {
             dependencies {
@@ -48,8 +57,8 @@ android {
 
 mavenPublishing {
 
-    group = "io.github.plumsoftware"
-    version = "0.0.2"
+    group = "ru.plumsoftware"
+    version = "0.0.4"
 
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
