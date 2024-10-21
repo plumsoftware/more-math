@@ -1,7 +1,7 @@
 package more.math.vector.model
 
 @Suppress("UNCHECKED_CAST")
-data class Vector2<T : Number>(val x: T, val y: T) {
+public data class Vector2<T : Number>(val x: T, val y: T) {
 
     operator fun plus(other: Vector2<T>): Vector2<T> {
         return Vector2(
