@@ -31,7 +31,6 @@ kotlin {
     iosSimulatorArm64()
 
     linuxX64()
-    linuxArm64()
 
     applyDefaultHierarchyTemplate()
 
@@ -58,7 +57,7 @@ android {
 mavenPublishing {
 
     group = "io.github.plumsoftware"
-    version = "0.0.4"
+    version = "0.0.6"
 
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
