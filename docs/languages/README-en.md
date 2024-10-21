@@ -13,7 +13,7 @@ Kotlin multiplatform library adding mathematical operations with matrices, vecto
 To connect the library, you need to add the lines below to the ```build.gradle.kts``` file of your multiplatform module
 ```kotlin
 dependencies {
-    implementation("ru.plumsoftware:more-math:<version>")
+    implementation("io.github.plumsoftware:more-math:<version>")
 }
 ```
 
