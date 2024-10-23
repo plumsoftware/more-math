@@ -1,6 +1,7 @@
 ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.plumsoftware/more-math?style=for-the-badge&logo=kotlin&logoColor=white&logoSize=auto&label=more%20math&labelColor=orange&color=orange)
 
 ![More Math logo](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/logo.png)
 
