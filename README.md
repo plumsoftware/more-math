@@ -29,6 +29,7 @@ dependencies {
 * [Тетрация](#Тетрация)
 * [Остальное](#Другое)
 * [Матрица](#Матрица)
+* [Граф](#Граф)
 * [Вектор на плоскости](#Вектор)
 * [Комбинаторика](#Комбинаторика)
 
@@ -108,6 +109,21 @@ val det = matrix.determinant()
 val transposedMatrix = matrix.transpose()
 ```
 
+### Граф
+Создать неориентированный граф
+```kotlin
+val undirectedGraph = UndirectedGraph()
+
+undirectedGraph.addVertex("A")
+undirectedGraph.addVertex("B")
+
+undirectedGraph.addEdge("A", "B", weight = 2)
+```
+
+Получить все вершины
+```kotlin
+val vertices = undirectedGraph.vertices
+```
 
 
 ### Вектор

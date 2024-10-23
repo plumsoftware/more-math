@@ -25,6 +25,7 @@ This library provides functionality to work with Vector on a plane, Matrix, Comb
 * [Tetraction](#Tetraction)
 * [Other](#Other)
 * [Matrix](#Matrix)
+* [Graph](#Graph)
 * [Vector on plane](#Vector)
 * [Combinatorics](#Combinatorics)
 
@@ -104,6 +105,22 @@ Transpose matrix
 val transposedMatrix = matrix.transpose()
 ```
 
+
+### Graph
+Create undirected graph
+```kotlin
+val undirectedGraph = UndirectedGraph()
+
+undirectedGraph.addVertex("A")
+undirectedGraph.addVertex("B")
+
+undirectedGraph.addEdge("A", "B", weight = 2)
+```
+
+Get a vertices
+```kotlin
+val vertices = undirectedGraph.vertices
+```
 
 
 ### Vector
