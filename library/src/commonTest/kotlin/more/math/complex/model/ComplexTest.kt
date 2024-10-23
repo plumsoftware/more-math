@@ -54,19 +54,6 @@ class ComplexTest {
     }
 
     @Test
-    fun powOfComplexNumber() {
-        val complex1 = MoreMath.complex(1.0)
-        val result1 = complex1 pow 2
-        assertEquals(0.0, result1.realPart.toDouble())
-        assertEquals(0.0, result1.imaginaryPart)
-
-        val complex = MoreMath.complex(1.0,-4.0)
-        val result = complex pow 2
-        assertEquals(-3.0, result.realPart.toDouble())
-        assertEquals(4.0, result.imaginaryPart)
-    }
-
-    @Test
     fun testEquals() {
         val complex1 = MoreMath.complex(2, -4)
         val complex2 = MoreMath.complex(2, -4)

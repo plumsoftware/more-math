@@ -146,11 +146,6 @@ println(complex.toString())
 This will print ```3.0 + 2.0i```
 
 With complex numbers, you can perform ```+```, ```-```, ```-```, ```/```. ```equals()``` and ```hashCode()``` are also available.
-You can also raise a complex number to a power, as written below
-```kotlin
-val complex: Complex = MoreMath.complex(3, -4)
-val result = complex pow 2
-```
 
 
 
