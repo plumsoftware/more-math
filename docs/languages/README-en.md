@@ -26,6 +26,8 @@ This library provides functionality to work with Vector on a plane, Matrix, Comb
 * [Tetraction](#Tetraction)
 * [Other](#Other)
 * [Matrix](#Matrix)
+* [Graph](#Graph)
+* [Complex numbers](#Complex-numbers)
 * [Vector on plane](#Vector)
 * [Combinatorics](#Combinatorics)
 
@@ -104,6 +106,47 @@ Transpose matrix
 ```kotlin
 val transposedMatrix = matrix.transpose()
 ```
+
+Times matrix with number
+```kotlin
+val res = matrix.times(2)
+```
+
+
+### Graph
+Create undirected graph
+```kotlin
+val undirectedGraph = UndirectedGraph()
+
+undirectedGraph.addVertex("A")
+undirectedGraph.addVertex("B")
+
+undirectedGraph.addEdge("A", "B", weight = 2)
+```
+
+Get a vertices
+```kotlin
+val vertices = undirectedGraph.vertices
+```
+
+
+
+### Complex numbers
+Create a complex number
+```kotlin
+val complex: Complex = MoreMath.complex(-4)
+println(complex.toString())
+```
+This will print ```0.0 + 2.0i```
+
+If you need to specify the real part of the number, use
+```kotlin
+val complex: Complex = MoreMath.complex(3, -4)
+println(complex.toString())
+```
+This will print ```3.0 + 2.0i```
+
+With complex numbers, you can perform ```+```, ```-```, ```-```, ```/```. ```equals()``` and ```hashCode()``` are also available.
 
 
 

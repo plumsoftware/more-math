@@ -38,3 +38,43 @@ public fun <R : Number> Matrix<R>.transpose(): Matrix<R> {
     }
     return Matrix(*transposedRows)
 }
+
+public fun <R : Number> Matrix<R>.times(value: Int): Matrix<Int> {
+    val map: List<List<Int>> = this.rows.map { rs ->
+        val newRow = rs.map { item ->
+            item.toInt() * value
+        }
+        newRow
+    }
+    return Matrix(*map.toTypedArray())
+}
+
+public fun <R : Number> Matrix<R>.times(value: Double): Matrix<Double> {
+    val map: List<List<Double>> = this.rows.map { rs ->
+        val newRow = rs.map { item ->
+            item.toDouble() * value
+        }
+        newRow
+    }
+    return Matrix(*map.toTypedArray())
+}
+
+public fun <R : Number> Matrix<R>.times(value: Float): Matrix<Float> {
+    val map: List<List<Float>> = this.rows.map { rs ->
+        val newRow = rs.map { item ->
+            item.toFloat() * value
+        }
+        newRow
+    }
+    return Matrix(*map.toTypedArray())
+}
+
+public fun <R : Number> Matrix<R>.times(value: Long): Matrix<Long> {
+    val map: List<List<Long>> = this.rows.map { rs ->
+        val newRow = rs.map { item ->
+            item.toLong() * value
+        }
+        newRow
+    }
+    return Matrix(*map.toTypedArray())
+}

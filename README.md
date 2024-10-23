@@ -30,6 +30,8 @@ dependencies {
 * [Тетрация](#Тетрация)
 * [Остальное](#Другое)
 * [Матрица](#Матрица)
+* [Граф](#Граф)
+* [Комплексные числа](#Комплексные-числа)
 * [Вектор на плоскости](#Вектор)
 * [Комбинаторика](#Комбинаторика)
 
@@ -108,6 +110,46 @@ val det = matrix.determinant()
 ```kotlin
 val transposedMatrix = matrix.transpose()
 ```
+
+Умножить матрицу на число
+```kotlin
+val res = matrix.times(2)
+```
+
+### Граф
+Создать неориентированный граф
+```kotlin
+val undirectedGraph = UndirectedGraph()
+
+undirectedGraph.addVertex("A")
+undirectedGraph.addVertex("B")
+
+undirectedGraph.addEdge("A", "B", weight = 2)
+```
+
+Получить все вершины
+```kotlin
+val vertices = undirectedGraph.vertices
+```
+
+
+
+### Комплексные числа
+Создать комплексное число
+```kotlin
+val complex: Complex = MoreMath.complex(-4)
+println(complex.toString())
+```
+В результате будет напечатано ```0.0 + 2.0i```
+
+Если Вам нужно указать реальную часть числа, то воспользуйтесь
+```kotlin
+val complex: Complex = MoreMath.complex(3, -4)
+println(complex.toString())
+```
+В результате будет напечатано ```3.0 + 2.0i```
+
+С комплексными числами можно выполнять ```+```, ```-```, ```-```, ```/```. Также доступны ```equals()``` и ```hashCode()```.
 
 
 
