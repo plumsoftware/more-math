@@ -184,4 +184,28 @@ class MatrixExtensionKtTest {
             matrix.determinant()
         }
     }
+
+    @Test
+    fun timesByNumber() {
+        val matrixInt = Matrix(
+            listOf(1, 2),
+            listOf(3, 4)
+        )
+        val matrixDouble = Matrix(
+            listOf(1.0, 2.0),
+            listOf(3.0, 4.0)
+        )
+
+        val resMatrix1 = Matrix(
+            listOf(2, 4),
+            listOf(6, 8)
+        )
+        val resMatrix2 = Matrix(
+            listOf(2.0, 4.0),
+            listOf(6.0, 8.0)
+        )
+
+        assertEquals(expected = matrixInt.times(2), actual = resMatrix1)
+        assertEquals(expected = matrixDouble.times(2.0), actual = resMatrix2)
+    }
 }
