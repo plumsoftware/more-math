@@ -140,14 +140,14 @@ val vertices = undirectedGraph.vertices
 val complex: Complex = MoreMath.complex(-4)
 println(complex.toString())
 ```
-В результате будет напечатано ```0.0 + 2.0i```
+В результате будет напечатано ```0.0 - 2.0i```
 
 Если Вам нужно указать реальную часть числа, то воспользуйтесь
 ```kotlin
 val complex: Complex = MoreMath.complex(3, -4)
 println(complex.toString())
 ```
-В результате будет напечатано ```3.0 + 2.0i```
+В результате будет напечатано ```3.0 - 2.0i```
 
 С комплексными числами можно выполнять ```+```, ```-```, ```-```, ```/```. Также доступны ```equals()``` и ```hashCode()```.
 
