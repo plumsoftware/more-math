@@ -137,14 +137,14 @@ Create a complex number
 val complex: Complex = MoreMath.complex(-4)
 println(complex.toString())
 ```
-This will print ```0.0 + 2.0i```
+This will print ```0.0 - 2.0i```
 
 If you need to specify the real part of the number, use
 ```kotlin
 val complex: Complex = MoreMath.complex(3, -4)
 println(complex.toString())
 ```
-This will print ```3.0 + 2.0i```
+This will print ```3.0 - 2.0i```
 
 With complex numbers, you can perform ```+```, ```-```, ```-```, ```/```. ```equals()``` and ```hashCode()``` are also available.
 
