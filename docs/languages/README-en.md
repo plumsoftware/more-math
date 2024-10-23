@@ -105,6 +105,11 @@ Transpose matrix
 val transposedMatrix = matrix.transpose()
 ```
 
+Times matrix with number
+```kotlin
+val res = matrix.times(2)
+```
+
 
 ### Graph
 Create undirected graph

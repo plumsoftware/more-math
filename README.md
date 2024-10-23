@@ -109,6 +109,11 @@ val det = matrix.determinant()
 val transposedMatrix = matrix.transpose()
 ```
 
+Умножить матрицу на число
+```kotlin
+val res = matrix.times(2)
+```
+
 ### Граф
 Создать неориентированный граф
 ```kotlin
