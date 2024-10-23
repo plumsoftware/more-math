@@ -30,6 +30,7 @@ dependencies {
 * [Остальное](#Другое)
 * [Матрица](#Матрица)
 * [Граф](#Граф)
+* [Комплексные числа](#Комплексные-числа)
 * [Вектор на плоскости](#Вектор)
 * [Комбинаторика](#Комбинаторика)
 
@@ -129,6 +130,31 @@ undirectedGraph.addEdge("A", "B", weight = 2)
 ```kotlin
 val vertices = undirectedGraph.vertices
 ```
+
+
+
+### Комплексные числа
+Создать комплексное число
+```kotlin
+val complex: Complex = MoreMath.complex(-4)
+println(complex.toString())
+```
+В результате будет напечатано ```0.0 + 2.0i```
+
+Если Вам нужно указать реальную часть числа, то воспользуйтесь
+```kotlin
+val complex: Complex = MoreMath.complex(3, -4)
+println(complex.toString())
+```
+В результате будет напечатано ```3.0 + 2.0i```
+
+С комплексными числами можно выполнять ```+```, ```-```, ```-```, ```/```. Также доступны ```equals()``` и ```hashCode()```. 
+Также Вы можете возвести комплексное число в степень, как написано ниже
+```kotlin
+val complex: Complex = MoreMath.complex(3, -4)
+val result = complex pow 2
+```
+
 
 
 ### Вектор

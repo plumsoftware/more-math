@@ -26,6 +26,7 @@ This library provides functionality to work with Vector on a plane, Matrix, Comb
 * [Other](#Other)
 * [Matrix](#Matrix)
 * [Graph](#Graph)
+* [Complex numbers](#Complex-numbers)
 * [Vector on plane](#Vector)
 * [Combinatorics](#Combinatorics)
 
@@ -126,6 +127,31 @@ Get a vertices
 ```kotlin
 val vertices = undirectedGraph.vertices
 ```
+
+
+
+### Complex numbers
+Create a complex number
+```kotlin
+val complex: Complex = MoreMath.complex(-4)
+println(complex.toString())
+```
+This will print ```0.0 + 2.0i```
+
+If you need to specify the real part of the number, use
+```kotlin
+val complex: Complex = MoreMath.complex(3, -4)
+println(complex.toString())
+```
+This will print ```3.0 + 2.0i```
+
+With complex numbers, you can perform ```+```, ```-```, ```-```, ```/```. ```equals()``` and ```hashCode()``` are also available.
+You can also raise a complex number to a power, as written below
+```kotlin
+val complex: Complex = MoreMath.complex(3, -4)
+val result = complex pow 2
+```
+
 
 
 ### Vector
