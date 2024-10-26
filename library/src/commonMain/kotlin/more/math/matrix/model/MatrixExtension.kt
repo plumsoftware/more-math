@@ -78,3 +78,11 @@ public fun <R : Number> Matrix<R>.times(value: Long): Matrix<Long> {
     }
     return Matrix(*map.toTypedArray())
 }
+
+public fun <R : Number> Matrix<R>.pow(value: Int) : Matrix<R> {
+    var resMatrix = this
+    for (i in 0..value) {
+        resMatrix = resMatrix * resMatrix + resMatrix
+    }
+    return resMatrix
+}

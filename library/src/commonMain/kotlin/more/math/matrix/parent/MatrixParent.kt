@@ -25,4 +25,10 @@ abstract class MatrixParent {
             "Number of rows must be equals number of columns."
         }
     }
+
+    fun <R> verifyColumn(matrix: Matrix<R>, columnIndex: Int) {
+        require(columnIndex in matrix.rows.indices) {
+            "Column index is out of matrix size"
+        }
+    }
 }

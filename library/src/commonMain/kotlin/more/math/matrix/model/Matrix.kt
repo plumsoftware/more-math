@@ -4,6 +4,12 @@ import more.math.matrix.parent.MatrixParent
 
 public class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
 
+    fun column(columnIndex: Int): List<R> {
+        verifyColumn(this, columnIndex)
+        val column: List<R> = rows.map { it[columnIndex] }
+        return column
+    }
+
     operator fun get(rowIndex: Int, columnIndex: Int): R {
         verify(rows = rows, rowIndex = rowIndex, columnIndex = columnIndex)
         return rows[rowIndex][columnIndex]
