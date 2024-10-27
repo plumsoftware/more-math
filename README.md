@@ -85,7 +85,7 @@ val matrix = Matrix<Int> (
 )
 ```
 
-Операторы, доступныее для матриц ```+```, ```-```, ```-```. Также можно использовать ```equals()``` и ```hashCode```.
+Операторы, доступные для матриц ```+```, ```-```, ```-```, ```pow()```. Также можно использовать ```equals()``` и ```hashCode```.
 ```kotlin
 val matrix1 = matrixOf<Int> (
   listOf(1, 2),
@@ -95,6 +95,7 @@ val matrix2 = matrixOf<Int> (
   listOf(5, 6),
   listOf(7, 8)
 )
+val matrix3 = matrix1.pow(2)
 
 val plus = matrix1 + matrix2
 val times = matrix1 * matrix2
