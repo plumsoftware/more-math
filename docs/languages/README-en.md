@@ -81,7 +81,7 @@ val matrix = Matrix<Int> (
 )
 ```
 
-You can ```+```, ```-```, ```-``` matrix. Also ```equals()``` and ```hashCode``` are available.
+You can ```+```, ```-```, ```-```, ```pow()``` matrix. Also ```equals()``` and ```hashCode``` are available.
 ```kotlin
 val matrix1 = matrixOf<Int> (
   listOf(1, 2),
@@ -91,6 +91,7 @@ val matrix2 = matrixOf<Int> (
   listOf(5, 6),
   listOf(7, 8)
 )
+val matrix3 = matrix1.pow(2)
 
 val plus = matrix1 + matrix2
 val times = matrix1 * matrix2

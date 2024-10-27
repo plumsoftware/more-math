@@ -208,4 +208,34 @@ class MatrixExtensionKtTest {
         assertEquals(expected = matrixInt.times(2), actual = resMatrix1)
         assertEquals(expected = matrixDouble.times(2.0), actual = resMatrix2)
     }
+
+    @Test
+    fun columnTest() {
+        val matrixInt = Matrix(
+            listOf(1, 2, 3),
+            listOf(4, 5, 6),
+            listOf(7, 8, 9)
+        )
+        assertEquals(listOf(1, 4, 7), matrixInt.column(0))
+        assertEquals(listOf(2, 5, 8), matrixInt.column(1))
+        assertEquals(listOf(3, 6, 9), matrixInt.column(2))
+        assertFails {
+            matrixInt.column(4)
+            matrixInt.column(-4)
+        }
+    }
+
+    @Test
+    fun testPowMatrix() {
+        val matrixDouble = Matrix(
+            listOf(1.0, 2.0),
+            listOf(3.0, 4.0)
+        )
+        val matrixDoubleRes = Matrix(
+            listOf(7.0, 10.0),
+            listOf(15.0, 22.0)
+        )
+
+        assertEquals(expected = matrixDoubleRes, actual = matrixDouble.pow(2))
+    }
 }
