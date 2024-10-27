@@ -227,15 +227,15 @@ class MatrixExtensionKtTest {
 
     @Test
     fun testPowMatrix() {
-        val matrixInt = Matrix(
-            listOf(1, 2),
-            listOf(3, 4)
+        val matrixDouble = Matrix(
+            listOf(1.0, 2.0),
+            listOf(3.0, 4.0)
         )
-        val matrixIntRes = Matrix(
-            listOf(1, 2),
-            listOf(3, 4)
+        val matrixDoubleRes = Matrix(
+            listOf(7.0, 10.0),
+            listOf(15.0, 22.0)
         )
 
-        assertEquals(expected = matrixIntRes, actual = matrixInt.pow(2))
+        assertEquals(expected = matrixDoubleRes, actual = matrixDouble.pow(2))
     }
 }

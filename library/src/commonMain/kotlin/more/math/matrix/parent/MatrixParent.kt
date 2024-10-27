@@ -4,8 +4,8 @@ import more.math.matrix.model.Matrix
 
 abstract class MatrixParent {
     fun <R> verify(rows: Array<out List<R>>, rowIndex: Int, columnIndex: Int) {
-        require(rowIndex in rows.indices) { "Row index out of bounds" }
-        require(columnIndex in rows[rowIndex].indices) { "Column index out of bounds" }
+        require(rowIndex in rows.indices) { "Row index out of bounds." }
+        require(columnIndex in rows[rowIndex].indices) { "Column index out of bounds." }
     }
 
     fun <R> verifySize(rows: Array<out List<R>>, other: Matrix<R>) {
@@ -28,7 +28,13 @@ abstract class MatrixParent {
 
     fun <R> verifyColumn(matrix: Matrix<R>, columnIndex: Int) {
         require(columnIndex in matrix.rows.indices) {
-            "Column index is out of matrix size"
+            "Column index is out of matrix size."
+        }
+    }
+
+    fun verifyMatrixPower(power: Int) {
+        require(power > 1) {
+            "Power must be more than 1."
         }
     }
 }
