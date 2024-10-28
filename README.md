@@ -63,7 +63,7 @@ val res = MoreMath.gcd(13, 17)
 val res = MoreMath.standardDeviation(1.0, 2.0, 3.0)
 ```
 
-**Срднее значение**
+**Среднее значение**
 ```kotlin
 val res = MoreMath.average(1, 2, 3)
 ```
