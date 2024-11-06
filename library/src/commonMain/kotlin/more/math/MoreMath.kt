@@ -84,14 +84,14 @@ public object MoreMath {
     public fun <T : Number> complex(real: T, imaginary: Double) : Complex {
         return Complex(
             realPart = real,
-            imaginaryPart = kotlin.math.sqrt(kotlin.math.abs(imaginary))
+            imaginaryPart = (if (imaginary < 0) -1 else 1) * kotlin.math.sqrt(kotlin.math.abs(imaginary))
         )
     }
 
     public fun <T : Number> complex(real: T, imaginary: Int) : Complex {
         return Complex(
             realPart = real,
-            imaginaryPart = kotlin.math.sqrt(kotlin.math.abs(imaginary.toDouble()))
+            imaginaryPart = (if (imaginary < 0) -1 else 1) * kotlin.math.sqrt(kotlin.math.abs(imaginary.toDouble()))
         )
     }
     //endregion

@@ -61,4 +61,16 @@ class ComplexTest {
             complex1 == complex2
         }
     }
+
+    @Test
+    fun testAlgebraicForm() {
+        assertEquals("2 - 3.0i", MoreMath.complex(2, -9).toAlgebraic())
+        assertEquals("2 + 3.0i", MoreMath.complex(2, 9).toAlgebraic())
+    }
+
+    @Test
+    fun testGeometricForm() {
+        val complex = MoreMath.complex(3, 16)
+        assertEquals("5.0 * (cos(0.9272952180016122) + i * sin(0.9272952180016122))", complex.toGeometric())
+    }
 }

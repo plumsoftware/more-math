@@ -1,8 +1,26 @@
 package more.math.complex.model
 
-public data class Complex (val realPart: Number, val imaginaryPart: Double) {
+public data class Complex(val realPart: Number, val imaginaryPart: Double) {
+
+    val modulus: Double
+        get() = kotlin.math.hypot(realPart.toDouble(), imaginaryPart)
+
+    val argument: Double
+        get() = kotlin.math.atan2(imaginaryPart, realPart.toDouble())
 
     override fun toString(): String {
+        return "Algebraic form is ${toAlgebraic()}, geometric form is ${toGeometric()}"
+    }
+
+    fun toGeometric(): String {
+        return if (imaginaryPart >= 0) {
+            "$modulus * (cos(${argument}) + i * sin(${argument}))"
+        } else {
+            "$modulus * (cos(${argument}) - i * sin(${argument}))"
+        }
+    }
+
+    fun toAlgebraic(): String {
         return if (imaginaryPart >= 0) {
             "$realPart + ${imaginaryPart}i"
         } else {
@@ -55,8 +73,10 @@ public data class Complex (val realPart: Number, val imaginaryPart: Double) {
 
         val denominator =
             otherReal * otherReal + other.imaginaryPart * other.imaginaryPart
-        val realPart = (thisReal * otherReal + this.imaginaryPart * other.imaginaryPart) / denominator
-        val imaginaryPart = (this.imaginaryPart * otherReal - thisReal * other.imaginaryPart) / denominator
+        val realPart =
+            (thisReal * otherReal + this.imaginaryPart * other.imaginaryPart) / denominator
+        val imaginaryPart =
+            (this.imaginaryPart * otherReal - thisReal * other.imaginaryPart) / denominator
 
         return Complex(realPart, imaginaryPart)
     }
