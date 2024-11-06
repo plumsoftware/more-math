@@ -9,12 +9,12 @@ class ComplexTest {
 
     @Test
     fun creationOfComplexNumber() {
-        val complex: Complex = MoreMath.complex(3, 4.0)
+        val complex: Complex = MoreMath.complex(3, -4.0)
         assertEquals(3.0, complex.realPart.toDouble())
-        assertEquals(2.0, complex.imaginaryPart)
+        assertEquals(-2.0, complex.imaginaryPart)
 
         val complex2 = MoreMath.complex( -4)
-        assertEquals(2.0, complex2.imaginaryPart)
+        assertEquals(-2.0, complex2.imaginaryPart)
     }
 
     @Test
