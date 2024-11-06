@@ -70,7 +70,7 @@ public object MoreMath {
     public fun complex(imaginary: Double) : Complex {
         return Complex(
             realPart = 0.0,
-            imaginaryPart = kotlin.math.sqrt(kotlin.math.abs(imaginary))
+            imaginaryPart = (if (imaginary < 0) -1 else 1) * kotlin.math.sqrt(kotlin.math.abs(imaginary))
         )
     }
 
