@@ -1,5 +1,6 @@
 package more.math.matrix.model
 
+import more.math.complex.model.Complex
 import more.math.matrixOf
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -276,5 +277,25 @@ class MatrixExtensionKtTest {
 
         val min4 = matrix4.minInMatrix()
         assertEquals(expected = -2.0, actual = min4)
+    }
+
+    @Test
+    fun strMatrix() {
+        val matrix = matrixOf<String>(
+            listOf("a", "b"),
+            listOf("c", "d")
+        )
+        assertEquals(expected = "a", actual = matrix[0, 0])
+
+        val matrix2 = matrixOf(
+            listOf(Complex(realPart = 1, imaginaryPart = -16.0), Complex(realPart = 2, imaginaryPart = -16.0)),
+            listOf(Complex(realPart = 3, imaginaryPart = -16.0), Complex(realPart = 4, imaginaryPart = -16.0))
+        )
+        assertEquals(expected = Complex(realPart = 1, imaginaryPart = -16.0), actual = matrix2[0, 0])
+
+        assertFails {
+            val sum = matrix + matrix
+            val sum2 = matrix2 + matrix2
+        }
     }
 }
