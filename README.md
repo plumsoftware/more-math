@@ -117,6 +117,12 @@ val transposedMatrix = matrix.transpose()
 val res = matrix.times(2)
 ```
 
+Найти минимальный или максимальный элемент в матрице
+```kotlin
+val min = matrix.minInMatrix()
+val max = matrix.maxInMatrix()
+```
+
 ### Граф
 Создать неориентированный граф
 ```kotlin
@@ -138,17 +144,21 @@ val vertices = undirectedGraph.vertices
 ### Комплексные числа
 Создать комплексное число
 ```kotlin
-val complex: Complex = MoreMath.complex(-4)
-println(complex.toString())
+val complex: Complex = complex(-4.0)
 ```
-В результате будет напечатано ```0.0 - 2.0i```
+В результате будет ```0.0 - 2.0i```
 
 Если Вам нужно указать реальную часть числа, то воспользуйтесь
 ```kotlin
-val complex: Complex = MoreMath.complex(3, -4)
-println(complex.toString())
+val complex: Complex = complex(3, -4.0)
 ```
-В результате будет напечатано ```3.0 - 2.0i```
+В результате будет ```3.0 - 2.0i```
+
+Получить алгебраическую или геометрическую форму можно таким образом
+```kotlin
+val algebraic = complex.toAlgebraic()
+val geometric = complex.toGeometric()
+```
 
 С комплексными числами можно выполнять ```+```, ```-```, ```*```, ```/```. Также доступны ```equals()``` и ```hashCode()```.
 
