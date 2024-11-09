@@ -238,4 +238,43 @@ class MatrixExtensionKtTest {
 
         assertEquals(expected = matrixDoubleRes, actual = matrixDouble.pow(2))
     }
+
+    @Test
+    fun minItemInMatrix() {
+        val matrix1 = matrixOf<Int>(
+            listOf(1, 2),
+            listOf(3, 4),
+            listOf(-1, -2),
+        )
+
+        val min1 = matrix1.minInMatrix()
+        assertEquals(expected = -2, actual = min1)
+
+        val matrix2 = matrixOf<Float>(
+            listOf(1f, 2f),
+            listOf(3f, 4f),
+            listOf(-1f, -2f),
+        )
+
+        val min2 = matrix2.minInMatrix()
+        assertEquals(expected = -2f, actual = min2)
+
+        val matrix3 = matrixOf<Long>(
+            listOf(1L, 2L),
+            listOf(3L, 4L),
+            listOf(-1L, -2L),
+        )
+
+        val min3 = matrix3.minInMatrix()
+        assertEquals(expected = -2L, actual = min3)
+
+        val matrix4 = matrixOf<Double>(
+            listOf(1.0, 2.0),
+            listOf(3.0, 4.0),
+            listOf(-1.0, -2.0),
+        )
+
+        val min4 = matrix4.minInMatrix()
+        assertEquals(expected = -2.0, actual = min4)
+    }
 }
