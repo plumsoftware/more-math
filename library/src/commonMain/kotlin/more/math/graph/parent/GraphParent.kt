@@ -3,9 +3,9 @@ package more.math.graph.parent
 import more.math.graph.model.Vertex
 
 abstract class GraphParent {
-    fun verify(list: List<Vertex>, from: String, to: String) {
-        val from_ = list.find { it.name == from }
-        val to_ = list.find { it.name == to }
+    fun <V> verify(list: List<Vertex<V>>, from: Vertex<V>, to: Vertex<V>) {
+        val from_ = list.find { it.id == from.id }
+        val to_ = list.find { it.id == to.id }
 
         require(from_ != null && to_ != null) {
             "Source or Destination Vertex not found"

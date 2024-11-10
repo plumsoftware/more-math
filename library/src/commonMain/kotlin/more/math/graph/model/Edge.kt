@@ -1,6 +1,6 @@
 package more.math.graph.model
 
-data class Edge(
+data class Edge <V>(
     val weight: Number,
-    val destination: Vertex
+    val destination: Vertex<V>
 )
