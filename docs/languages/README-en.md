@@ -113,6 +113,12 @@ Times matrix with number
 val res = matrix.times(2)
 ```
 
+To find min or max item in matrix
+```kotlin
+val min = matrix.minInMatrix()
+val max = matrix.maxInMatrix()
+```
+
 
 ### Graph
 Create undirected graph
@@ -135,19 +141,23 @@ val vertices = undirectedGraph.vertices
 ### Complex numbers
 Create a complex number
 ```kotlin
-val complex: Complex = MoreMath.complex(-4)
-println(complex.toString())
+val complex: Complex = complex(-4.0)
 ```
-This will print ```0.0 - 2.0i```
+This will be ```0.0 - 2.0i```
 
 If you need to specify the real part of the number, use
 ```kotlin
-val complex: Complex = MoreMath.complex(3, -4)
-println(complex.toString())
+val complex: Complex = MoreMath.complex(3, -4.0)
 ```
-This will print ```3.0 - 2.0i```
+This will be ```3.0 - 2.0i```
 
-With complex numbers, you can perform ```+```, ```-```, ```-```, ```/```. ```equals()``` and ```hashCode()``` are also available.
+T0 find algebraic or geometric form
+```kotlin
+val algebraic = complex.toAlgebraic()
+val geometric = complex.toGeometric()
+```
+
+With complex numbers, you can perform ```+```, ```-```, ```*```, ```/```. ```equals()``` and ```hashCode()``` are also available.
 
 
 
@@ -163,7 +173,7 @@ or
 val vector2 = Vector2(1 , 2)
 ```
 
-You can ```+```, ```-```, ```-```, ```/``` vector2. Also ```equals()``` and ```length()``` are available.
+You can ```+```, ```-```, ```*```, ```/``` vector2. Also ```equals()``` and ```length()``` are available.
 ```kotlin
 val vector1 = vector2Of(1, 2)
 val vector2 = vector2Of(3, 4)

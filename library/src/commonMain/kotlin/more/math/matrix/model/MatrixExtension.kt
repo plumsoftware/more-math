@@ -2,6 +2,7 @@ package more.math.matrix.model
 
 import kotlin.math.pow
 
+//region::Other
 public fun <R : Number> Matrix<R>.determinant(): Double {
     isSquare(matrix = this)
 
@@ -39,6 +40,19 @@ public fun <R : Number> Matrix<R>.transpose(): Matrix<R> {
     return Matrix(*transposedRows)
 }
 
+public fun <R : Number> Matrix<R>.pow(value: Int): Matrix<R> {
+    this.verifyMatrixPower(value)
+    var resMatrix = this
+    var power = value
+    while (power > 1) {
+        resMatrix *= resMatrix
+        power -= 1
+    }
+    return resMatrix
+}
+//endregion
+
+//region::Times
 public fun <R : Number> Matrix<R>.times(value: Int): Matrix<Int> {
     val map: List<List<Int>> = this.rows.map { rs ->
         val newRow = rs.map { item ->
@@ -78,14 +92,104 @@ public fun <R : Number> Matrix<R>.times(value: Long): Matrix<Long> {
     }
     return Matrix(*map.toTypedArray())
 }
+//endregion
 
-public fun <R : Number> Matrix<R>.pow(value: Int): Matrix<R> {
-    this.verifyMatrixPower(value)
-    var resMatrix = this
-    var power = value
-    while (power > 1) {
-        resMatrix *= resMatrix
-        power -= 1
+//region::Min in matrix
+public inline fun Matrix<Int>.minInMatrix(): Int {
+    var globalMin: Int = Int.MAX_VALUE
+    var min = 0
+    this.rows.forEachIndexed { _, rs ->
+        min = rs.minBy { it }
+        if (min < globalMin) {
+            globalMin = min
+        }
     }
-    return resMatrix
+    return globalMin
 }
+
+public inline fun Matrix<Double>.minInMatrix(): Double {
+    var globalMin: Double = Double.MAX_VALUE
+    var min = 0.0
+    this.rows.forEachIndexed { _, rs ->
+        min = rs.minBy { it }
+        if (min < globalMin) {
+            globalMin = min
+        }
+    }
+    return globalMin
+}
+
+public inline fun Matrix<Float>.minInMatrix(): Float {
+    var globalMin: Float = Float.MAX_VALUE
+    var min = 0.0f
+    this.rows.forEachIndexed { _, rs ->
+        min = rs.minBy { it }
+        if (min < globalMin) {
+            globalMin = min
+        }
+    }
+    return globalMin
+}
+
+public inline fun Matrix<Long>.minInMatrix(): Long {
+    var globalMin: Long = Long.MAX_VALUE
+    var min = 0L
+    this.rows.forEachIndexed { _, rs ->
+        min = rs.minBy { it }
+        if (min < globalMin) {
+            globalMin = min
+        }
+    }
+    return globalMin
+}
+//endregion
+
+//region::Max in matrix
+public inline fun Matrix<Int>.maxInMatrix(): Int {
+    var globalMax: Int = Int.MIN_VALUE
+    var max = 0
+    this.rows.forEachIndexed { _, rs ->
+        max = rs.maxBy { it }
+        if (max > globalMax) {
+            globalMax = max
+        }
+    }
+    return globalMax
+}
+
+public inline fun Matrix<Double>.maxInMatrix(): Double {
+    var globalMax: Double = Double.MIN_VALUE
+    var max = 0.0
+    this.rows.forEachIndexed { _, rs ->
+        max = rs.maxBy { it }
+        if (max > globalMax) {
+            globalMax = max
+        }
+    }
+    return globalMax
+}
+
+public inline fun Matrix<Float>.maxInMatrix(): Float {
+    var globalMax: Float = Float.MIN_VALUE
+    var max = 0.0f
+    this.rows.forEachIndexed { _, rs ->
+        max = rs.maxBy { it }
+        if (max > globalMax) {
+            globalMax = max
+        }
+    }
+    return globalMax
+}
+
+public inline fun Matrix<Long>.maxInMatrix(): Long {
+    var globalMax: Long = Long.MIN_VALUE
+    var max = 0L
+    this.rows.forEachIndexed { _, rs ->
+        max = rs.maxBy { it }
+        if (max > globalMax) {
+            globalMax = max
+        }
+    }
+    return globalMax
+}
+//endregion

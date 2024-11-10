@@ -1,7 +1,6 @@
 package more.math
 
 import more.math.combinatorics.CombinatoricsParent
-import more.math.complex.model.Complex
 import more.math.factorial.FactorialParent
 import more.math.tetraction.TetractionParent
 import kotlin.math.pow
@@ -63,36 +62,6 @@ public object MoreMath {
     public fun binomialCoefficient(n: Int, k: Int) : Long {
         combinatoricsParent.verify(n, k)
         return factorial(n) / (factorial(k) * factorial(n - k))
-    }
-    //endregion
-
-    //region::Complex
-    public fun complex(imaginary: Double) : Complex {
-        return Complex(
-            realPart = 0.0,
-            imaginaryPart = kotlin.math.sqrt(kotlin.math.abs(imaginary))
-        )
-    }
-
-    public fun complex(imaginary: Int) : Complex {
-        return Complex(
-            realPart = 0.0,
-            imaginaryPart = kotlin.math.sqrt(kotlin.math.abs(imaginary.toDouble()))
-        )
-    }
-
-    public fun <T : Number> complex(real: T, imaginary: Double) : Complex {
-        return Complex(
-            realPart = real,
-            imaginaryPart = kotlin.math.sqrt(kotlin.math.abs(imaginary))
-        )
-    }
-
-    public fun <T : Number> complex(real: T, imaginary: Int) : Complex {
-        return Complex(
-            realPart = real,
-            imaginaryPart = kotlin.math.sqrt(kotlin.math.abs(imaginary.toDouble()))
-        )
     }
     //endregion
 }
