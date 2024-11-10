@@ -1,5 +1,6 @@
 package more.math.graph.model
 
+import more.math.graph.model.mode.SetVertexMode
 import more.math.matrix.model.Matrix
 import more.math.matrixOf
 import kotlin.test.Test
@@ -122,5 +123,24 @@ class GraphTest {
 
         assertEquals(expected = vertexC, actual = graph[vertexC])
         assertEquals(expected = 4, actual = graph.connections.size)
+    }
+
+    @Test
+    fun freeVertices() {
+        val graph = Graph<String, Int>()
+
+        val vertexA = Vertex(id = "A")
+        val vertexB = Vertex(id = "B")
+        val vertexC = Vertex(id = "C")
+        val vertexD = Vertex(id = "D")
+
+        graph.addVertex(vertexA)
+        graph.addVertex(vertexB)
+        graph.addVertex(vertexC)
+        graph.addVertex(vertexD)
+
+        graph.createConnection(from = vertexA, to = vertexB, weight = 2)
+        assertEquals(expected = 2, graph.getFreeVertices().size)
+        assertEquals(expected = 2, graph.getBusyVertices().size)
     }
 }
