@@ -124,21 +124,71 @@ val max = matrix.maxInMatrix()
 ```
 
 ### Граф
-Создать неориентированный граф
+Создать взвешенный граф
 ```kotlin
-val undirectedGraph = UndirectedGraph()
+val graph = Graph<VertexType, WeightType>(mode = GraphMode.UNDIRECTED)
+```
+Где ```VertexType``` - это тип вершины. 
+```WeightType``` - это тип веса вершины: ```Int```, ```Double```, ```Long```, ```Float```.
+```mode``` - это тип графа: ```UNDIRECTED```, ```DIRECTED```.
 
-undirectedGraph.addVertex("A")
-undirectedGraph.addVertex("B")
+Для создания связи нужно добавить вершины:
+```kotlin
+val graph = Graph<String, Int>()
 
-undirectedGraph.addEdge("A", "B", weight = 2)
+val vertexA = Vertex(id = "A")
+val vertexB = Vertex(id = "B")
+val vertexC = Vertex(id = "C")
+val vertexD = Vertex(id = "D")
+
+graph.addVertex(vertexA)
+graph.addVertex(vertexB)
+graph.addVertex(vertexC)
+graph.addVertex(vertexD)
+```
+
+Затем создайте связь между вершинами
+```kotlin
+graph.createConnection(from = vertexA, to = vertexB, weight = 2)
 ```
 
 Получить все вершины
 ```kotlin
-val vertices = undirectedGraph.vertices
+val vertices = graph.vertices
 ```
 
+Получить все связи
+```kotlin
+val vertices = graph.connections
+```
+
+Узнать, есть ли вершина
+```kotlin
+val vertex: Vertex<String>? = graph[someVertex]
+```
+Это вернёт ```null```, если вершины в графе нет.
+
+Заменить вершину в графе
+```kotlin
+val newVertex = Vertex("A")
+val oldVertex = Vertex("B") //Эта вершина уже есть в графе
+graph.set(oldVertex, newVertex, SetVertexMode.NEW_FROM_TO)
+```
+Это заменит все вершины во всех связях в графе и удалит старую вершину. 
+Если вы хотите заменить только начальные вершины в связях или конечные, то используйте ```NEW_FROM``` или ```NEW_TO``` соответственно.
+
+Для удаления всех связей используйте:
+```kotlin
+graph.removeConnectionsByVertex(someVertex, RemoveVertexMode.TO)
+```
+Это удалит все связи, где есть переданная конечная вершина.
+Если нужно удалить только начальные вершины или обе (начальную и конечную) из связей, то используйте ```FROM``` или ```BOTH``` соответственно.
+
+Для получения всех вершин без связей или наоборот всех вершин в связях
+```kotlin
+val freeList = graph.getFreeVertices()
+val busyList = graph.getBusyVertices()
+```
 
 
 ### Комплексные числа
