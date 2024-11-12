@@ -81,7 +81,7 @@ val matrix = Matrix<Int> (
 )
 ```
 
-You can ```+```, ```-```, ```-```, ```pow()``` matrix. Also ```equals()``` and ```hashCode``` are available.
+You can ```+```, ```-```, ```*```, ```pow()``` matrix. Also ```equals()``` and ```hashCode``` are available.
 ```kotlin
 val matrix1 = matrixOf<Int> (
   listOf(1, 2),
@@ -121,21 +121,69 @@ val max = matrix.maxInMatrix()
 
 
 ### Graph
-Create undirected graph
+Create a weighted graph
 ```kotlin
-val undirectedGraph = UndirectedGraph()
-
-undirectedGraph.addVertex("A")
-undirectedGraph.addVertex("B")
-
-undirectedGraph.addEdge("A", "B", weight = 2)
+val graph = Graph<VertexType, WeightType>(mode = GraphMode.UNDIRECTED)
 ```
 
-Get a vertices
+Where VertexType is the type of the vertex. WeightType is the type of the vertex weight: Int, Double, Long, Float. mode is the type of the graph: UNDIRECTED, DIRECTED.
+
+To create a connection, you need to add vertices:
 ```kotlin
-val vertices = undirectedGraph.vertices
+val graph = Graph<String, Int>()
+
+val vertexA = Vertex(id = "A")
+val vertexB = Vertex(id = "B")
+val vertexC = Vertex(id = "C")
+val vertexD = Vertex(id = "D")
+
+graph.addVertex(vertexA)
+graph.addVertex(vertexB)
+graph.addVertex(vertexC)
+graph.addVertex(vertexD)
 ```
 
+Then create a connection between the vertices
+```kotlin
+graph.createConnection(from = vertexA, to = vertexB, weight = 2)
+```
+
+Get all vertices
+```kotlin
+val vertices = graph.vertices
+```
+
+Get all connections
+```kotlin
+val vertices = graph.connections
+```
+Check if a vertex exists
+```kotlin
+val vertex: Vertex<String>? = graph[someVertex]
+```
+This will return null if the vertex does not exist in the graph.
+
+Replace a vertex in a graph
+
+```kotlin
+val newVertex = Vertex("A")
+val oldVertex = Vertex("B") //This vertex is already in the graph
+graph.set(oldVertex, newVertex, SetVertexMode.NEW_FROM_TO)
+```
+This will replace all nodes in all links in the graph and remove the old node. If you want to replace only the start nodes in links or the end nodes, use NEW_FROM or NEW_TO respectively.
+
+To remove all connections use:
+```kotlin
+graph.removeConnectionsByVertex(someVertex, RemoveVertexMode.TO)
+```
+
+This will remove all links where the given end node is present. If you want to remove only the start nodes or both (start and end) from links, use FROM or BOTH respectively.
+
+To get all nodes without links or vice versa all nodes in links
+```kotlin
+val freeList = graph.getFreeVertices()
+val busyList = graph.getBusyVertices()
+```
 
 
 ### Complex numbers
