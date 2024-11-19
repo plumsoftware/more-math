@@ -73,27 +73,27 @@ val res = MoreMath.average(1, 2, 3)
 Создать матрицу можно двумя способами
 ```kotlin
 val matrix = matrixOf<Int> (
-  listOf(1, 2),
-  listOf(3, 4)
+    mutableListOf(1, 2), 
+    mutableListOf(3, 4)
 )
 ```
 или 
 ```kotlin
 val matrix = Matrix<Int> (
-  listOf(1, 2),
-  listOf(3, 4)
+    mutableListOf(1, 2),
+    mutableListOf(3, 4)
 )
 ```
 
 Операторы, доступные для матриц ```+```, ```-```, ```*```, ```pow()```. Также можно использовать ```equals()``` и ```hashCode```.
 ```kotlin
 val matrix1 = matrixOf<Int> (
-  listOf(1, 2),
-  listOf(3, 4)
+    mutableListOf(1, 2),
+    mutableListOf(3, 4)
 )
 val matrix2 = matrixOf<Int> (
-  listOf(5, 6),
-  listOf(7, 8)
+    mutableListOf(5, 6),
+    mutableListOf(7, 8)
 )
 val matrix3 = matrix1.pow(2)
 
@@ -117,10 +117,16 @@ val transposedMatrix = matrix.transpose()
 val res = matrix.times(2)
 ```
 
-Найти минимальный или максимальный элемент в матрице
+Найти минимальный или максимальный элемент в матрице.
+Если Ваша матрица состоит из ```Double```, ```Long```, ```Float``` или ```Int```, то воспользуйтесь кодом ниже
 ```kotlin
 val min = matrix.minInMatrix()
 val max = matrix.maxInMatrix()
+```
+или
+```kotlin
+val min = matrix.minInMatrixBy { it }
+val max = matrix.maxInMatrixBy { it }
 ```
 
 ### Граф

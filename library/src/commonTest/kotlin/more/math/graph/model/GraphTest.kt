@@ -1,5 +1,6 @@
 package more.math.graph.model
 
+import more.math.graph.model.mode.GraphMode
 import more.math.graph.model.mode.SetVertexMode
 import more.math.matrix.model.Matrix
 import more.math.matrixOf
@@ -15,12 +16,12 @@ class GraphTest {
         val graph = Graph<Matrix<Int>, Int>()
 
         val m1 = matrixOf(
-            listOf(1, 2),
-            listOf(3, 4)
+            mutableListOf(1, 2),
+            mutableListOf(3, 4)
         )
         val m2 = matrixOf(
-            listOf(5, 6),
-            listOf(7, 8)
+            mutableListOf(5, 6),
+            mutableListOf(7, 8)
         )
         val m3 = matrixOf<Int>()
 
@@ -142,5 +143,53 @@ class GraphTest {
         graph.createConnection(from = vertexA, to = vertexB, weight = 2)
         assertEquals(expected = 2, graph.getFreeVertices().size)
         assertEquals(expected = 2, graph.getBusyVertices().size)
+    }
+
+    @Test
+    fun testMinPathFunUndirectedGraph() {
+        val graph = Graph<String, Int>(mode = GraphMode.UNDIRECTED)
+
+        val vertexA = Vertex(id = "A")
+        val vertexB = Vertex(id = "B")
+        val vertexC = Vertex(id = "C")
+        val vertexD = Vertex(id = "D")
+        val vertexE = Vertex(id = "E")
+
+        graph.addVertex(vertexA)
+        graph.addVertex(vertexB)
+        graph.addVertex(vertexC)
+        graph.addVertex(vertexD)
+        graph.addVertex(vertexE)
+
+        graph.createConnection(from = vertexA, to = vertexB, weight = 2)
+        graph.createConnection(from = vertexB, to = vertexC, weight = 5)
+        graph.createConnection(from = vertexC, to = vertexD, weight = 6)
+        graph.createConnection(from = vertexA, to = vertexD, weight = 17)
+
+        val minPath1: GraphPath<String, Double> = graph.minPath(from = vertexA, to = vertexD)
+        val expected1 = GraphPath(
+            Pair(vertexA, 0.0),
+            Pair(vertexB, 2.0),
+            Pair(vertexC, 7.0),
+            Pair(vertexD, 13.0),
+        )
+        assertEquals(expected = expected1.path[2], actual = minPath1.path[2])
+
+        graph.createConnection(from = vertexB, to = vertexE, weight = 1)
+        graph.createConnection(from = vertexE, to = vertexD, weight = 3)
+
+        val minPath2: GraphPath<String, Double> = graph.minPath(from = vertexA, to = vertexD)
+        val expected2 = GraphPath(
+            Pair(vertexA, 0.0),
+            Pair(vertexB, 2.0),
+            Pair(vertexE, 3.0),
+            Pair(vertexD, 6.0),
+        )
+        assertEquals(expected = expected2.path[2].second, actual = minPath2.path[2].second)
+
+        graph.createConnection(from = vertexE, to = vertexA, weight = -3)
+        assertFails {
+            graph.minPath(from = vertexA, to = vertexD)
+        }
     }
 }

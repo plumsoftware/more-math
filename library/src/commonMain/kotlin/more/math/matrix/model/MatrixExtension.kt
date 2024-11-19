@@ -9,25 +9,20 @@ public fun <R : Number> Matrix<R>.determinant(): Double {
     if (rows.size == 1) {
         return this[0, 0].toDouble()
     }
-
     if (rows.size == 2) {
-        return (this[0, 0].toDouble() * this[1, 1].toDouble() -
-                this[0, 1].toDouble() * this[1, 0].toDouble())
+        return (this[0, 0].toDouble() * this[1, 1].toDouble() - this[0, 1].toDouble() * this[1, 0].toDouble())
     }
 
     var det = 0.0
-
     for (j in 0 until rows[0].size) {
-        // Создание подматрицы (минор)
-        val minor = Matrix(*(rows.indices.filter { it != 0 }.map { rowIndex ->
+        val minor = Matrix(*rows.indices.filter { it != 0 }.map { rowIndex ->
             rows[rowIndex].indices.filter { it != j }.map { colIndex ->
                 this[rowIndex, colIndex]
-            }
-        }.toTypedArray()))
+            }.toMutableList()
+        }.toTypedArray())
 
         det += (-1.0).pow(j) * this[0, j].toDouble() * minor.determinant()
     }
-
     return det
 }
 
@@ -37,7 +32,7 @@ public fun <R : Number> Matrix<R>.transpose(): Matrix<R> {
             this[colIndex, rowIndex]
         }
     }
-    return Matrix(*transposedRows)
+    return Matrix(*transposedRows.map { it.toMutableList() }.toTypedArray())
 }
 
 public fun <R : Number> Matrix<R>.pow(value: Int): Matrix<R> {
@@ -60,7 +55,7 @@ public fun <R : Number> Matrix<R>.times(value: Int): Matrix<Int> {
         }
         newRow
     }
-    return Matrix(*map.toTypedArray())
+    return Matrix(*map.map { it.toMutableList() }.toTypedArray())
 }
 
 public fun <R : Number> Matrix<R>.times(value: Double): Matrix<Double> {
@@ -70,7 +65,7 @@ public fun <R : Number> Matrix<R>.times(value: Double): Matrix<Double> {
         }
         newRow
     }
-    return Matrix(*map.toTypedArray())
+    return Matrix(*map.map { it.toMutableList() }.toTypedArray())
 }
 
 public fun <R : Number> Matrix<R>.times(value: Float): Matrix<Float> {
@@ -80,7 +75,7 @@ public fun <R : Number> Matrix<R>.times(value: Float): Matrix<Float> {
         }
         newRow
     }
-    return Matrix(*map.toTypedArray())
+    return Matrix(*map.map { it.toMutableList() }.toTypedArray())
 }
 
 public fun <R : Number> Matrix<R>.times(value: Long): Matrix<Long> {
@@ -90,7 +85,7 @@ public fun <R : Number> Matrix<R>.times(value: Long): Matrix<Long> {
         }
         newRow
     }
-    return Matrix(*map.toTypedArray())
+    return Matrix(*map.map { it.toMutableList() }.toTypedArray())
 }
 //endregion
 
@@ -142,6 +137,24 @@ public inline fun Matrix<Long>.minInMatrix(): Long {
     }
     return globalMin
 }
+
+public inline fun <reified R, reified T : Comparable<T>> Matrix<R>.minInMatrixBy(block: (R) -> T): T {
+    this.isEmpty(this)
+
+    var minValue: T? = null
+
+    for (row in rows) {
+        for (element in row) {
+            val transformedValue = block(element)
+
+            if (minValue == null || transformedValue < minValue) {
+                minValue = transformedValue
+            }
+        }
+    }
+
+    return minValue ?: throw IllegalStateException("Unable to find minimum value in the matrix.")
+}
 //endregion
 
 //region::Max in matrix
@@ -191,5 +204,23 @@ public inline fun Matrix<Long>.maxInMatrix(): Long {
         }
     }
     return globalMax
+}
+
+public inline fun <reified R, reified T : Comparable<T>> Matrix<R>.maxInMatrixBy(block: (R) -> T): T {
+    this.isEmpty(this)
+
+    var maxValue: T? = null
+
+    for (row in rows) {
+        for (element in row) {
+            val transformedValue = block(element)
+
+            if (maxValue == null || transformedValue > maxValue) {
+                maxValue = transformedValue
+            }
+        }
+    }
+
+    return maxValue ?: throw IllegalStateException("Unable to find maximum value in the matrix.")
 }
 //endregion

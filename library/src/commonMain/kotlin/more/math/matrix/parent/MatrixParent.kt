@@ -37,4 +37,8 @@ abstract class MatrixParent {
             "Power must be more than 1."
         }
     }
+
+    fun <R> isEmpty(matrix: Matrix<R>) {
+        require(matrix.rows.isNotEmpty() && matrix.rows[0].isNotEmpty()) { "Matrix cannot be empty." }
+    }
 }

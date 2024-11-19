@@ -4,8 +4,8 @@ import more.math.complex.model.Complex
 import more.math.matrix.model.Matrix
 import more.math.vector.model.Vector2
 
-public inline fun <reified R> matrixOf(vararg row: List<R>): Matrix<R> {
-    return Matrix(*row.map { it.map { elem -> elem } }.toTypedArray())
+public inline fun <reified R> matrixOf(vararg row: MutableList<R>): Matrix<R> {
+    return Matrix(*row.map { it.toMutableList() }.toTypedArray())
 }
 
 //region::Vector
