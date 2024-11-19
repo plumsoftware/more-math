@@ -137,6 +137,24 @@ public inline fun Matrix<Long>.minInMatrix(): Long {
     }
     return globalMin
 }
+
+public inline fun <reified R, reified T : Comparable<T>> Matrix<R>.minInMatrixBy(block: (R) -> T): T {
+    this.isEmpty(this)
+
+    var minValue: T? = null
+
+    for (row in rows) {
+        for (element in row) {
+            val transformedValue = block(element)
+
+            if (minValue == null || transformedValue < minValue) {
+                minValue = transformedValue
+            }
+        }
+    }
+
+    return minValue ?: throw IllegalStateException("Unable to find minimum value in the matrix.")
+}
 //endregion
 
 //region::Max in matrix
@@ -186,5 +204,23 @@ public inline fun Matrix<Long>.maxInMatrix(): Long {
         }
     }
     return globalMax
+}
+
+public inline fun <reified R, reified T : Comparable<T>> Matrix<R>.maxInMatrixBy(block: (R) -> T): T {
+    this.isEmpty(this)
+
+    var maxValue: T? = null
+
+    for (row in rows) {
+        for (element in row) {
+            val transformedValue = block(element)
+
+            if (maxValue == null || transformedValue > maxValue) {
+                maxValue = transformedValue
+            }
+        }
+    }
+
+    return maxValue ?: throw IllegalStateException("Unable to find maximum value in the matrix.")
 }
 //endregion

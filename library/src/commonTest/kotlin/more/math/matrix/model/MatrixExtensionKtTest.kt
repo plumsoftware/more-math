@@ -1,5 +1,6 @@
 package more.math.matrix.model
 
+import more.math.complex
 import more.math.complex.model.Complex
 import more.math.matrixOf
 import kotlin.test.BeforeTest
@@ -277,6 +278,24 @@ class MatrixExtensionKtTest {
 
         val min4 = matrix4.minInMatrix()
         assertEquals(expected = -2.0, actual = min4)
+
+        val matrix5 = matrixOf<Complex>(
+            mutableListOf(complex(3, -16.0), complex(3, -4.0)),
+            mutableListOf(complex(3, 25.0), complex(3, -36.0)),
+            mutableListOf(complex(3, -49.0), complex(3, 36.0)),
+        )
+
+        assertEquals(expected = -7.0, actual = matrix5.minInMatrixBy{ it.imaginaryPart })
+    }
+
+    @Test
+    fun maxItemInMatrix() {
+        val matrix5 = matrixOf<Complex>(
+            mutableListOf(complex(3, -16.0), complex(3, -4.0)),
+            mutableListOf(complex(3, 25.0), complex(3, -36.0)),
+            mutableListOf(complex(3, -49.0), complex(3, 36.0)),
+        )
+        assertEquals(expected = 6.0, actual = matrix5.maxInMatrixBy{ it.imaginaryPart })
     }
 
     @Test
