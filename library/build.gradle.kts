@@ -57,7 +57,7 @@ android {
 mavenPublishing {
 
     group = "io.github.plumsoftware"
-    version = "0.0.9"
+    version = "1.0.0"
 
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
@@ -67,7 +67,7 @@ mavenPublishing {
 
     pom {
         name.set("More math")
-        description.set("Это KMP библиотека слегка упрощающая работу с математикой.")
+        description.set("Это KMP библиотека для работы с математикой.")
         url.set("https://github.com/plumsoftware/more-math")
 
         licenses {
