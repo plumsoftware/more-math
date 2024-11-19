@@ -2,7 +2,7 @@ package more.math.matrix.model
 
 import more.math.matrix.parent.MatrixParent
 
-public class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
+public class Matrix<R>(vararg var rows: MutableList<R>) : MatrixParent() {
 
     fun column(columnIndex: Int): List<R> {
         verifyColumn(this, columnIndex)
@@ -13,6 +13,11 @@ public class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
     operator fun get(rowIndex: Int, columnIndex: Int): R {
         verify(rows = rows, rowIndex = rowIndex, columnIndex = columnIndex)
         return rows[rowIndex][columnIndex]
+    }
+
+    operator fun set(rowIndex: Int, columnIndex: Int, item: R) {
+        verify(rows = rows, rowIndex = rowIndex, columnIndex = columnIndex)
+        rows[rowIndex][columnIndex] = item
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -49,7 +54,7 @@ public class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
             }
         }
 
-        return Matrix(*resultRows)
+        return Matrix(*resultRows.map { it.toMutableList() }.toTypedArray())
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -86,7 +91,7 @@ public class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
             }
         }
 
-        return Matrix(*resultRows)
+        return Matrix(*resultRows.map { it.toMutableList() }.toTypedArray())
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -127,7 +132,7 @@ public class Matrix<R>(vararg val rows: List<R>) : MatrixParent() {
                 sum as R
             }
         }
-        return Matrix(*resultRows)
+        return Matrix(*resultRows.map { it.toMutableList() }.toTypedArray())
     }
 
     override fun toString(): String {

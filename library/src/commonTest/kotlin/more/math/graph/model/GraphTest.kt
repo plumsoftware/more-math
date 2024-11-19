@@ -16,12 +16,12 @@ class GraphTest {
         val graph = Graph<Matrix<Int>, Int>()
 
         val m1 = matrixOf(
-            listOf(1, 2),
-            listOf(3, 4)
+            mutableListOf(1, 2),
+            mutableListOf(3, 4)
         )
         val m2 = matrixOf(
-            listOf(5, 6),
-            listOf(7, 8)
+            mutableListOf(5, 6),
+            mutableListOf(7, 8)
         )
         val m3 = matrixOf<Int>()
 
