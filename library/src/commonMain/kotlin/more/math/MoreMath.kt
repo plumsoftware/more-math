@@ -2,6 +2,7 @@ package more.math
 
 import more.math.combinatorics.CombinatoricsParent
 import more.math.factorial.FactorialParent
+import more.math.platform.factorial.BigNum
 import more.math.tetraction.TetractionParent
 import kotlin.math.pow
 
@@ -22,6 +23,17 @@ public object MoreMath {
         return if (n == 0L) 1L else n * factorial(n - 1L)
     }
 
+    public fun bigFactorial(n: Long): BigNum {
+        if (n == 0L || n == 1L) {
+            return BigNum(BigNum.ONE.toString())
+        }
+
+        val number = BigNum(n.toString())
+        val result = number.multiply(bigFactorial(n - 1L))
+
+        return BigNum(result.toString())
+    }
+
     public fun tetraction(number: Double, other: Int): Double {
         tetractionParent.verify(number, other)
         return if (other == 0) {
@@ -31,7 +43,7 @@ public object MoreMath {
         }
     }
 
-    public fun average(vararg numbers: Int) : Double{
+    public fun average(vararg numbers: Int): Double {
         return numbers.average()
     }
 
@@ -59,7 +71,7 @@ public object MoreMath {
         return factorial(n) / factorial(n - k)
     }
 
-    public fun binomialCoefficient(n: Int, k: Int) : Long {
+    public fun binomialCoefficient(n: Int, k: Int): Long {
         combinatoricsParent.verify(n, k)
         return factorial(n) / (factorial(k) * factorial(n - k))
     }
