@@ -1,6 +1,7 @@
 package more.math.matrix.parent
 
 import more.math.matrix.model.Matrix
+import more.math.matrix.model.MatrixSize
 
 abstract class MatrixParent {
     fun <R> verify(rows: Array<out List<R>>, rowIndex: Int, columnIndex: Int) {
@@ -40,5 +41,20 @@ abstract class MatrixParent {
 
     fun <R> isEmpty(matrix: Matrix<R>) {
         require(matrix.rows.isNotEmpty() && matrix.rows[0].isNotEmpty()) { "Matrix cannot be empty." }
+    }
+
+    fun <R> verifyContent(vararg rows: MutableList<R>) {
+        val rowSize = rows[0].size
+        rows.forEachIndexed { _, rs ->
+            require(rs.size == rowSize) {
+                "Items in each row must be equals."
+            }
+        }
+    }
+
+    fun verifyMatrixSize(size: MatrixSize) {
+        require(size.column > 0 && size.row > 0) {
+            "Matrix size must be positive."
+        }
     }
 }

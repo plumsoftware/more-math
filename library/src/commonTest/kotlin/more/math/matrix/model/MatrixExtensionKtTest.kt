@@ -285,7 +285,7 @@ class MatrixExtensionKtTest {
             mutableListOf(complex(3, -49.0), complex(3, 36.0)),
         )
 
-        assertEquals(expected = -7.0, actual = matrix5.minInMatrixBy{ it.imaginaryPart })
+        assertEquals(expected = -7.0, actual = matrix5.minInMatrixBy { it.imaginaryPart })
     }
 
     @Test
@@ -295,7 +295,7 @@ class MatrixExtensionKtTest {
             mutableListOf(complex(3, 25.0), complex(3, -36.0)),
             mutableListOf(complex(3, -49.0), complex(3, 36.0)),
         )
-        assertEquals(expected = 6.0, actual = matrix5.maxInMatrixBy{ it.imaginaryPart })
+        assertEquals(expected = 6.0, actual = matrix5.maxInMatrixBy { it.imaginaryPart })
     }
 
     @Test
@@ -307,10 +307,19 @@ class MatrixExtensionKtTest {
         assertEquals(expected = "a", actual = matrix[0, 0])
 
         val matrix2 = matrixOf(
-            mutableListOf(Complex(realPart = 1, imaginaryPart = -16.0), Complex(realPart = 2, imaginaryPart = -16.0)),
-            mutableListOf(Complex(realPart = 3, imaginaryPart = -16.0), Complex(realPart = 4, imaginaryPart = -16.0))
+            mutableListOf(
+                Complex(realPart = 1, imaginaryPart = -16.0),
+                Complex(realPart = 2, imaginaryPart = -16.0)
+            ),
+            mutableListOf(
+                Complex(realPart = 3, imaginaryPart = -16.0),
+                Complex(realPart = 4, imaginaryPart = -16.0)
+            )
         )
-        assertEquals(expected = Complex(realPart = 1, imaginaryPart = -16.0), actual = matrix2[0, 0])
+        assertEquals(
+            expected = Complex(realPart = 1, imaginaryPart = -16.0),
+            actual = matrix2[0, 0]
+        )
 
         assertFails {
             val sum = matrix + matrix
@@ -330,5 +339,52 @@ class MatrixExtensionKtTest {
         )
         matrix1[1, 1] = -1
         assertEquals(matrix1, matrix2)
+    }
+
+    @Test
+    fun matrixSize() {
+        val matrix = matrixOf<Int>(
+            mutableListOf(1, 2, 3),
+            mutableListOf(4, 5, 6)
+        )
+
+        val size = matrix.size
+
+        assertEquals(MatrixSize(2, 3), size)
+    }
+
+    @Test
+    fun verifyContent() {
+        assertFails {
+            matrixOf(
+                mutableListOf(1, 2, 3),
+                mutableListOf(4, 5, 6),
+                mutableListOf(7, 8, 9, 10, 11)
+            )
+
+            matrixOf(
+                mutableListOf(7, 8, 9, 10, 11),
+                mutableListOf(1, 2, 3),
+                mutableListOf(4, 5, 6)
+            )
+
+            matrixOf(
+                mutableListOf("1", "1", "1", "1"),
+                mutableListOf(4, 5, 6)
+            )
+        }
+    }
+
+    @Test
+    fun matrixSizeWithConstructor() {
+        val matrix1 = Matrix<Int>(size = MatrixSize(row = 3, column = 4))
+        val matrix2 = Matrix<Int>(size = MatrixSize(row = 1, column = 1))
+
+        assertEquals(expected = matrix1.size, actual = MatrixSize(3, 4))
+        assertFails { matrix1[1, 1] as Int}
+        assertEquals(expected = matrix2.rows.size, 1)
+        assertFails {
+            Matrix<Int>(size = MatrixSize(row = -3, column = -4))
+        }
     }
 }
