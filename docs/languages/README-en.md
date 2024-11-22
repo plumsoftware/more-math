@@ -34,11 +34,15 @@ This library provides functionality to work with Vector on a plane, Matrix, Comb
 ## Usage
 
 ### Factorial
-Use factorial like this
+Use factorial for input below 21 like this 
 ```kotlin
 val res = MoreMath.factorial(3)
 ```
 
+Use factorial for input more 20 like this
+```kotlin
+val res = MoreMath.bigFactorial(22L)
+```
 
 
 ### Tetraction
@@ -80,8 +84,16 @@ val matrix = Matrix<Int> (
     mutableListOf(3, 4)
 )
 ```
+or with matrix size
+```kotlin
+val matrix = Matrix<Int>(size = MatrixSize(row = 3, column = 4))
+```
+It creates an empty matrix. Get a matrix size like this
+```kotlin
+val size = matrix.size
+```
 
-You can ```+```, ```-```, ```*```, ```pow()``` matrix. Also ```equals()``` and ```hashCode``` are available.
+You can ```+```, ```-```, ```*```, ```pow()```, ```>```, ```!=``` etc. To compare a matrix content use ```equals()```.
 ```kotlin
 val matrix1 = matrixOf<Int> (
     mutableListOf(1, 2),
@@ -152,6 +164,12 @@ Then create a connection between the vertices
 ```kotlin
 graph.createConnection(from = vertexA, to = vertexB, weight = 2)
 ```
+
+Get a min path in graph:
+```kotlin
+val minPath: GraphPath<String, Double> = graph.minPath(from = Vertex("A"), to = Vertex("B"))
+```
+It returns a ```GraphPath``` which contains a list of pairs - vertex and sum weight to next vertex.
 
 Get all vertices
 ```kotlin

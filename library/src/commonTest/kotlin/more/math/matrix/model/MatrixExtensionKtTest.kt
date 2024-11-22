@@ -7,6 +7,7 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
+import kotlin.test.assertTrue
 
 class MatrixExtensionKtTest {
 
@@ -386,5 +387,34 @@ class MatrixExtensionKtTest {
         assertFails {
             Matrix<Int>(size = MatrixSize(row = -3, column = -4))
         }
+    }
+
+    @Test
+    fun compareTo() {
+        val matrix1 = matrixOf<Int>(
+            mutableListOf(1, 2, 3),
+            mutableListOf(4, 5, 6),
+            mutableListOf(7, 8, 9),
+        )
+        val matrix2 = matrixOf<Int>(
+            mutableListOf(1, 2),
+            mutableListOf(3, 4)
+        )
+        val matrix3 = matrixOf<Int>(
+            mutableListOf(1, 2),
+            mutableListOf(3, 4)
+        )
+
+        val m1 = MatrixSize(1, 1)
+        val m2 = MatrixSize(1, 2)
+        val m3 = MatrixSize(1, 2)
+
+        assertTrue(m1 < m2)
+        assertTrue(m1 != m2)
+        assertEquals(m2, m3)
+
+        assertTrue(matrix1 > matrix2)
+        assertTrue(matrix1 != matrix2)
+        assertEquals(matrix2, matrix3)
     }
 }

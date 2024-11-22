@@ -105,6 +105,10 @@ public class Matrix<R>(vararg var rows: MutableList<R>) : MatrixParent() {
         return Matrix(*resultRows.map { it.toMutableList() }.toTypedArray())
     }
 
+    operator fun compareTo(other: Matrix<R>): Int {
+        return this.size.compareTo(other.size)
+    }
+
     @Suppress("UNCHECKED_CAST")
     operator fun times(other: Matrix<R>): Matrix<R> {
         verifyRows(rows = this.rows, other = other)

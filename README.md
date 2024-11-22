@@ -38,9 +38,14 @@ dependencies {
 ## Возможности
 
 ### Факториал
-Вычисление факториала
+Вычисление факториала для числа до 21
 ```kotlin
 val res = MoreMath.factorial(3)
+```
+
+Вычислить факторил для числа более 20
+```kotlin
+val res = MoreMath.bigFactorial(22L)
 ```
 
 
@@ -70,7 +75,7 @@ val res = MoreMath.average(1, 2, 3)
 
 
 ### Матрица
-Создать матрицу можно двумя способами
+Создать матрицу можно тремя способами
 ```kotlin
 val matrix = matrixOf<Int> (
     mutableListOf(1, 2), 
@@ -84,8 +89,16 @@ val matrix = Matrix<Int> (
     mutableListOf(3, 4)
 )
 ```
+или
+```kotlin
+val matrix = Matrix<Int>(size = MatrixSize(row = 3, column = 4))
+```
+Последее создаст пустую матрицу. Также можно получить размер матрицы
+```kotlin
+val size = matrix.size
+```
 
-Операторы, доступные для матриц ```+```, ```-```, ```*```, ```pow()```. Также можно использовать ```equals()``` и ```hashCode```.
+Операторы, доступные для матриц ```+```, ```-```, ```*```, ```pow()```, ```>```, ```>=``` и подобные. Для сравнения контента матриц, используйте метод ```equals()```.
 ```kotlin
 val matrix1 = matrixOf<Int> (
     mutableListOf(1, 2),
@@ -157,6 +170,12 @@ graph.addVertex(vertexD)
 ```kotlin
 graph.createConnection(from = vertexA, to = vertexB, weight = 2)
 ```
+
+Получить минимальный путь в графе от и до вершины
+```kotlin
+val minPath: GraphPath<String, Double> = graph.minPath(from = Vertex("A"), to = Vertex("B"))
+```
+В результате будет возвращен ```GraphPath```, который содержит пары - вершины и суммарный путь до следующей вершины.
 
 Получить все вершины
 ```kotlin

@@ -5,6 +5,13 @@ actual class BigNum actual constructor(value: String) {
 
     private val digits: List<Int> = value.reversed().map { it.digitToInt() }
 
+    actual companion object {
+        actual val ZERO: BigNum
+            get() = BigNum("0")
+        actual val ONE: BigNum
+            get() = BigNum("1")
+    }
+
     actual fun add(other: BigNum): BigNum {
         val maxLength = maxOf(this.digits.size, other.digits.size)
         val result = MutableList(maxLength + 1) { 0 }
@@ -54,12 +61,5 @@ actual class BigNum actual constructor(value: String) {
 
     actual override fun toString(): String {
         return digits.reversed().joinToString("") { it.toString() }.ifEmpty { "0" }
-    }
-
-    actual companion object {
-        actual val ZERO: BigNum
-            get() = BigNum("0")
-        actual val ONE: BigNum
-            get() = BigNum("1")
     }
 }
