@@ -56,6 +56,11 @@ val res = MoreMath.bigFactorial(22L)
 val res = MoreMath.tetraction(2.0, 3)
 ```
 
+Если, число в тетрации большое, то используйте
+```kotlin
+val res = MoreMath.bigTetraction(2.0, 40)
+```
+
 
 ### Другое
 Чтобы вычислить **наименьшее общее кратное** двух чисел
@@ -71,6 +76,13 @@ val res = MoreMath.standardDeviation(1.0, 2.0, 3.0)
 **Среднее значение**
 ```kotlin
 val res = MoreMath.average(1, 2, 3)
+```
+
+Узнать, положительное или отрицательное число
+
+```kotlin
+4.isPositive
+(-4).isNegative
 ```
 
 

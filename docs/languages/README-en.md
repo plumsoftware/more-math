@@ -51,6 +51,11 @@ To get tetraction use this
 val res = MoreMath.tetraction(2.0, 3)
 ```
 
+To work with  big numbers
+```kotlin
+val res = MoreMath.bigTetraction(2.0, 40)
+```
+
 
 ### Other
 To get **least common multiple**
@@ -66,6 +71,13 @@ val res = MoreMath.standardDeviation(1.0, 2.0, 3.0)
 Get a **average**
 ```kotlin
 val res = MoreMath.average(1, 2, 3)
+```
+
+Positive or negative number
+
+```kotlin
+4.isPositive
+(-4).isNegative
 ```
 
 
