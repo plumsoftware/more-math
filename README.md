@@ -8,6 +8,7 @@
 ## More math
 
 Мультиплатформенная библиотека Kotlin, добавляющая математические операции с матрицами, векторами, комбинаторикой и многим другим.
+![Telegram](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/telegram.svg)  Эмоджи для телеграм доступны по ссылке https://t.me/addemoji/RkIQSnNfAAA
 
 ## Подключение
 
