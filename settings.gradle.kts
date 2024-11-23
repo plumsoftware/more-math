@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "more-math"
 include(":library")
+include(":nativelib")
