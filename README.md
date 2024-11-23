@@ -3,12 +3,13 @@
 ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
 ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.plumsoftware/more-math?style=for-the-badge&logo=kotlin&logoColor=white&logoSize=auto&label=more%20math&labelColor=orange&color=orange)
 
-![More Math logo](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/logo.png)
+![More Math logo](https://github.com/plumsoftware/more-math/blob/master/docs/images/logo.png)
 
 ## More math
 
 Мультиплатформенная библиотека Kotlin, добавляющая математические операции с матрицами, векторами, комбинаторикой и многим другим.
-![Telegram](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/telegram.svg)  Эмоджи для телеграм доступны по ссылке https://t.me/addemoji/RkIQSnNfAAA
+
+![Telegram](https://github.com/plumsoftware/more-math/blob/master/docs/images/telegram.svg)  Эмоджи для телеграм доступны по ссылке https://t.me/addemoji/RkIQSnNfAAA
 
 ## Подключение
 
