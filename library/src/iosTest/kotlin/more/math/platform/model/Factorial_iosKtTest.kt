@@ -1,4 +1,4 @@
-package more.math.platform.factorial
+package more.math.platform.model
 
 import more.math.MoreMath
 import kotlin.test.Test
@@ -11,7 +11,7 @@ class Factorial_iosKtTest {
         val n = 22L
         val result = MoreMath.bigFactorial(n)
         assertEquals(
-            expected = BigNum("1124000727777607680000").toString(),
+            expected = BigInt("1124000727777607680000").toString(),
             actual = result.toString()
         )
     }

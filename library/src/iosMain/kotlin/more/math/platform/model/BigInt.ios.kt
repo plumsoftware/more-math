@@ -1,18 +1,18 @@
-package more.math.platform.factorial
+package more.math.platform.model
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
-actual class BigNum actual constructor(value: String) {
+actual class BigInt actual constructor(value: String) {
 
     private val digits: List<Int> = value.reversed().map { it.digitToInt() }
 
     actual companion object {
-        actual val ZERO: BigNum
-            get() = BigNum("0")
-        actual val ONE: BigNum
-            get() = BigNum("1")
+        actual val ZERO: BigInt
+            get() = BigInt("0")
+        actual val ONE: BigInt
+            get() = BigInt("1")
     }
 
-    actual fun add(other: BigNum): BigNum {
+    actual fun add(other: BigInt): BigInt {
         val maxLength = maxOf(this.digits.size, other.digits.size)
         val result = MutableList(maxLength + 1) { 0 }
         var carry = 0
@@ -29,11 +29,11 @@ actual class BigNum actual constructor(value: String) {
             result[maxLength] = carry
         }
 
-        return BigNum(result.reversed().dropWhile { it == 0 }.joinToString("") { it.toString() }
+        return BigInt(result.reversed().dropWhile { it == 0 }.joinToString("") { it.toString() }
             .ifEmpty { "0" })
     }
 
-    actual fun multiply(other: BigNum): BigNum {
+    actual fun multiply(other: BigInt): BigInt {
         val result = MutableList(this.digits.size + other.digits.size) { 0 }
 
         for (i in this.digits.indices) {
@@ -55,7 +55,7 @@ actual class BigNum actual constructor(value: String) {
             }
         }
 
-        return BigNum(result.reversed().dropWhile { it == 0 }.joinToString("") { it.toString() }
+        return BigInt(result.reversed().dropWhile { it == 0 }.joinToString("") { it.toString() }
             .ifEmpty { "0" })
     }
 

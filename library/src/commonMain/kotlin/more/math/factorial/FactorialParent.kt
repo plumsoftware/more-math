@@ -12,4 +12,10 @@ class FactorialParent {
             "Factorial must be in range 0..20."
         }
     }
+
+    fun verifyPositive(n: Long) {
+        require(n >= 0) {
+            "Factorial must positive."
+        }
+    }
 }

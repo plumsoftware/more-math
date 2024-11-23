@@ -1,4 +1,4 @@
-package more.math.platform.factorial
+package more.math.platform.model
 
 import more.math.MoreMath
 
