@@ -21,7 +21,11 @@ public inline fun <reified R : Number> complex(
 ): Complex {
     return Complex(
         realPart = realPart,
-        imaginaryPart = (if (imaginaryPart < 0) -1 else 1) * kotlin.math.sqrt(kotlin.math.abs(imaginaryPart))
+        imaginaryPart = (if (imaginaryPart < 0) -1 else 1) * kotlin.math.sqrt(
+            kotlin.math.abs(
+                imaginaryPart
+            )
+        )
     )
 }
 
@@ -30,7 +34,35 @@ public inline fun complex(
 ): Complex {
     return Complex(
         realPart = 0,
-        imaginaryPart = (if (imaginaryPart < 0) -1 else 1) * kotlin.math.sqrt(kotlin.math.abs(imaginaryPart))
+        imaginaryPart = (if (imaginaryPart < 0) -1 else 1) * kotlin.math.sqrt(
+            kotlin.math.abs(
+                imaginaryPart
+            )
+        )
     )
 }
+//endregion
+
+//region::Number
+public val Number.isPositive: Boolean
+    get() = when (this) {
+        is Int -> this.toInt() > 0
+        is Double -> this.toDouble() > 0
+        is Long -> this.toLong() > 0
+        is Float -> this.toFloat() > 0
+        else -> {
+            throw IllegalArgumentException("Unknown type.")
+        }
+    }
+
+public val Number.isNegative: Boolean
+    get() = when (this) {
+        is Int -> this.toInt() < 0
+        is Double -> this.toDouble() < 0
+        is Long -> this.toLong() < 0
+        is Float -> this.toFloat() < 0
+        else -> {
+            throw IllegalArgumentException("Unknown type.")
+        }
+    }
 //endregion

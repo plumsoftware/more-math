@@ -12,6 +12,7 @@ class FactorialTest {
         assertEquals(expected = 6L, actual = MoreMath.factorial(n = 3))
         assertEquals(expected = 1L, actual = MoreMath.factorial(n = 0))
         assertEquals(expected = 1L, actual = MoreMath.factorial(n = 1))
+        assertEquals(expected = 6L, actual = MoreMath.factorial(n = 3L))
     }
 
     @Test

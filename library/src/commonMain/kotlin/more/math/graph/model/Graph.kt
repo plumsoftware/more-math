@@ -1,7 +1,6 @@
 package more.math.graph.model
 
 import more.math.ExperimentalApi
-import more.math.InProgress
 import more.math.graph.model.exception.NegativeWeightException
 import more.math.graph.model.exception.VertexNotFoundException
 import more.math.graph.model.mode.GraphMode
@@ -11,7 +10,7 @@ import more.math.graph.parent.GraphParent
 
 @ExperimentalApi
 public class Graph<V, W : Number>
-public constructor(@InProgress val mode: GraphMode = GraphMode.UNDIRECTED) : GraphParent() {
+public constructor(val mode: GraphMode = GraphMode.UNDIRECTED) : GraphParent() {
     val vertices: MutableList<Vertex<V>> = mutableListOf()
     val connections: MutableList<Connection<V, W>> = mutableListOf()
     private var hasNegativeWeight: Boolean = false

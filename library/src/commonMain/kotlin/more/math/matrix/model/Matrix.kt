@@ -4,6 +4,17 @@ import more.math.matrix.parent.MatrixParent
 
 public class Matrix<R>(vararg var rows: MutableList<R>) : MatrixParent() {
 
+    @Suppress("UNCHECKED_CAST")
+    constructor(size: MatrixSize) : this(*Array(size.row) { MutableList(size.column) { null as R } }) {
+        this.verifyMatrixSize(size = size)
+    }
+
+    init {
+        this.verifyContent(*rows)
+    }
+
+    val size: MatrixSize = MatrixSize(row = rows.size, column = rows[0].size)
+
     fun column(columnIndex: Int): List<R> {
         verifyColumn(this, columnIndex)
         val column: List<R> = rows.map { it[columnIndex] }
@@ -92,6 +103,10 @@ public class Matrix<R>(vararg var rows: MutableList<R>) : MatrixParent() {
         }
 
         return Matrix(*resultRows.map { it.toMutableList() }.toTypedArray())
+    }
+
+    operator fun compareTo(other: Matrix<R>): Int {
+        return this.size.compareTo(other.size)
     }
 
     @Suppress("UNCHECKED_CAST")

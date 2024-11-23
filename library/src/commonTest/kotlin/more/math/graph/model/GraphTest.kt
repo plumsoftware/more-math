@@ -23,7 +23,7 @@ class GraphTest {
             mutableListOf(5, 6),
             mutableListOf(7, 8)
         )
-        val m3 = matrixOf<Int>()
+        val m3 = matrixOf<Int>(mutableListOf(0), mutableListOf(0))
 
         graph.addVertex(
             Vertex(
@@ -120,7 +120,11 @@ class GraphTest {
         graph.createConnection(from = vertexD, to = vertexA, weight = 5)
         graph.createConnection(from = vertexA, to = vertexD, weight = 10)
 
-        graph.set(oldVertex = vertexA, newVertex = vertexC, setVertexMode = SetVertexMode.NEW_FROM_TO)
+        graph.set(
+            oldVertex = vertexA,
+            newVertex = vertexC,
+            setVertexMode = SetVertexMode.NEW_FROM_TO
+        )
 
         assertEquals(expected = vertexC, actual = graph[vertexC])
         assertEquals(expected = 4, actual = graph.connections.size)
