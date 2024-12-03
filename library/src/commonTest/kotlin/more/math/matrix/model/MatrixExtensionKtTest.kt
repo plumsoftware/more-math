@@ -383,7 +383,7 @@ class MatrixExtensionKtTest {
         val matrix2 = Matrix<Int>(size = MatrixSize(row = 1, column = 1))
 
         assertEquals(expected = matrix1.size, actual = MatrixSize(3, 4))
-        assertFails { matrix1[1, 1] as Int }
+        assertFails { matrix1[1, 1] as Int}
         assertEquals(expected = matrix2.rows.size, 1)
         assertFails {
             Matrix<Int>(size = MatrixSize(row = -3, column = -4))
@@ -435,9 +435,13 @@ class MatrixExtensionKtTest {
         val e3: Int? = matrix1.find {
             it > 10
         }
+        val e4: Int? = matrix1.find {
+            (it in 21..49) || (it % 2 == 0 && it / 3 > 8) || (it == 30)
+        }
 
         assertEquals(4, e1)
         assertEquals(9, e2)
         assertNull(e3)
+        assertNull(e4)
     }
 }
