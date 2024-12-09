@@ -5,8 +5,6 @@ import more.math.factorial.FactorialParent
 import more.math.platform.model.BigFloat
 import more.math.platform.model.BigInt
 import more.math.native.model.NativeProvider
-import more.math.platform.model.BigFloat
-import more.math.platform.model.BigInt
 import more.math.tetraction.TetractionParent
 import kotlin.math.pow
 
