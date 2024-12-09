@@ -3,7 +3,8 @@ name: Library unit test
 on:
   pull_request:
     paths:
-      - 'library/**'
+      - 'library/src/commonMain/cpp/**'
+      - 'library/src/commonMain/kotlin/more/math/native/**'
 
 jobs:
   test:
@@ -18,4 +19,4 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
       - name: Unit Test
-        run: ./gradlew :library:JvmTest
+        run: ./gradlew :library:connectedDebugAndroidTest

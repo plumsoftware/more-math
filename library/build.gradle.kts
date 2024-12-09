@@ -1,6 +1,7 @@
 import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.io.ByteArrayOutputStream
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -15,6 +16,28 @@ kotlin {
         }
         testRuns["test"].executionTask.configure {
             useJUnitPlatform()
+        }
+
+
+
+        task("assemble_cpp") {
+            dependsOn(tasks.getByPath("assemble"))
+
+            val out = ByteArrayOutputStream()
+            doLast {
+                exec {
+                    mkdir("$project.buildDir")
+                    workingDir("$project.buildDir")
+                    commandLine("cmake", "$project.projectDir")
+                    standardOutput = out
+                }
+                exec {
+                    workingDir("$project.buildDir")
+                    commandLine("make")
+                    standardOutput = out
+                }
+                logger.info(out.toString())
+            }
         }
     }
 
@@ -51,6 +74,21 @@ android {
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    externalNativeBuild {
+        cmake {
+            path("src/commonMain/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
+    }
+
+    dependencies {
+        testImplementation(libs.junit)
+        androidTestImplementation(libs.ext.junit)
+        androidTestImplementation(libs.espresso.core)
     }
 }
 
