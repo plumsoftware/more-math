@@ -4,6 +4,9 @@ import more.math.combinatorics.CombinatoricsParent
 import more.math.factorial.FactorialParent
 import more.math.platform.model.BigFloat
 import more.math.platform.model.BigInt
+import more.math.native.model.NativeProvider
+import more.math.platform.model.BigFloat
+import more.math.platform.model.BigInt
 import more.math.tetraction.TetractionParent
 import kotlin.math.pow
 
@@ -12,11 +15,12 @@ public object MoreMath {
     private val factorialParent = FactorialParent()
     private val tetractionParent = TetractionParent()
     private val combinatoricsParent = CombinatoricsParent()
+    private val nativeProvider = NativeProvider()
 
     //region::Algebra
     public fun factorial(n: Int): Long {
         factorialParent.verifyFactorial(n)
-        return if (n == 0) 1L else n * factorial(n - 1)
+        return nativeProvider.nativeFactorial(number = n)
     }
 
     public fun factorial(n: Long): Long {
@@ -82,7 +86,7 @@ public object MoreMath {
         return factorial(n) / factorial(n - k)
     }
 
-    public fun binomialCoefficient(n: Int, k: Int): Long {
+    public fun binomialCoefficient(n: Int, k: Int) : Long {
         combinatoricsParent.verify(n, k)
         return factorial(n) / (factorial(k) * factorial(n - k))
     }
