@@ -40,11 +40,7 @@ public object MoreMath {
 
     public fun tetraction(number: Double, other: Int): Double {
         tetractionParent.verify(number, other)
-        return if (other == 0) {
-            1.0
-        } else {
-            number.pow(tetraction(number, other - 1))
-        }
+        return nativeProvider.tetraction(number, other)
     }
 
     public fun bigTetraction(number: Double, other: Int): BigFloat {
@@ -67,7 +63,7 @@ public object MoreMath {
     //Нок
     public fun gcd(a: Int, b: Int): Int {
         require(a >= 0 && b >= 0) { "Both numbers must be non-negative" }
-        return if (b == 0) a else gcd(b, a % b)
+        return nativeProvider.gcd(a = a, b = b)
     }
     //endregion
 

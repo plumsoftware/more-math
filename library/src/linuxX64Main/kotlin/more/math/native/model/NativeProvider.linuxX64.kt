@@ -1,5 +1,8 @@
 package more.math.native.model
 
+import more.math.MoreMath
+import kotlin.math.pow
+
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 internal actual class NativeProvider actual constructor() {
 
@@ -19,5 +22,17 @@ internal actual class NativeProvider actual constructor() {
         val avg = numbers.average()
         val sumOfSquares = numbers.sumOf { (it - avg) * (it - avg) }
         return kotlin.math.sqrt(sumOfSquares / (numbers.size - 1))
+    }
+
+    actual fun tetraction(number: Double, other: Int) : Double {
+        return if (other == 0) {
+            1.0
+        } else {
+            number.pow(tetraction(number, other - 1))
+        }
+    }
+
+    actual fun gcd(a: Int, b: Int): Int {
+        return if (b == 0) a else MoreMath.gcd(b, a % b)
     }
 }

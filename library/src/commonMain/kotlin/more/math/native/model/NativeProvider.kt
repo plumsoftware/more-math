@@ -11,5 +11,9 @@ internal expect class NativeProvider constructor() {
     fun nativeAverage(vararg numbers: Int) : Double
 
     fun standardDeviation(vararg numbers: Double) : Double
+
+    fun tetraction(number: Double, other: Int) : Double
+
+    fun gcd(a: Int, b: Int): Int
     //endregion
 }

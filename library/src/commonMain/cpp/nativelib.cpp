@@ -1,85 +1,59 @@
 #include <jni.h>
 #include <iostream>
 #include <cmath>
+#include "hyperoperator.h"
 
-extern "C"
+extern "C" {
 JNIEXPORT jlong JNICALL
 Java_more_math_native_model_NativeProvider_cppFactorial(JNIEnv *env, jobject thiz, jint number) {
-    unsigned long long result = 1;
-
-    for (int i = 2; i <= number; ++i) {
-        result *= i;
-
-        if (result > 9223372036854775807ULL) {
-            return -1;
-        }
-    }
-
-    return static_cast<jlong>(result);
+    return static_cast<jlong>(factorial(number));
 }
-
-extern "C"
 JNIEXPORT jlong JNICALL
 Java_more_math_native_model_NativeProvider_cppLongFactorial(JNIEnv *env, jobject thiz, jlong number) {
-    unsigned long long result = 1;
-
-    for (int i = 2; i <= number; ++i) {
-        result *= i;
-
-        if (result > 9223372036854775807ULL) {
-            return -1;
-        }
-    }
-
-    return static_cast<jlong>(result);
+    return static_cast<jlong>(factorial_(static_cast<long>(number)));
 }
 
-extern "C"
 JNIEXPORT jdouble JNICALL
-Java_more_math_native_model_NativeProvider_cppAverage(JNIEnv *env, jobject thiz, jintArray numbers) {
+Java_more_math_native_model_NativeProvider_cppAverage(JNIEnv *env, jobject thiz,jintArray numbers) {
+
     jsize length = env->GetArrayLength(numbers);
-    if (length == 0) {
+    jint* elements = env->GetIntArrayElements(numbers, nullptr);
+    if (elements == nullptr) {
         return 0.0;
     }
 
-    jint *elements = env->GetIntArrayElements(numbers, nullptr);
-
-    jint sum = 0;
-    for (jsize i = 0; i < length; i++) {
-        sum += elements[i];
-    }
+    double avg = average(elements, length);
 
     env->ReleaseIntArrayElements(numbers, elements, 0);
-    delete elements;
 
-    return static_cast<jdouble>(sum) / length;
+    return avg;
 }
 
-extern "C"
 JNIEXPORT jdouble JNICALL
-Java_more_math_native_model_NativeProvider_cppStandardDeviation(JNIEnv *env, jobject thiz, jdoubleArray numbers) {
+Java_more_math_native_model_NativeProvider_cppStandardDeviation(JNIEnv *env, jobject thiz,
+                                                                jdoubleArray numbers) {
     jsize length = env->GetArrayLength(numbers);
-    if (length < 2) {
+
+    jdouble *elements = env->GetDoubleArrayElements(numbers, nullptr);
+    if (elements == nullptr) {
         return 0.0;
     }
 
-    jdouble *elements = env->GetDoubleArrayElements(numbers, nullptr);
-
-
-    jdouble sum = 0.0;
-    for (jsize i = 0; i < length; i++) {
-        sum += elements[i];
-    }
-    jdouble avg = sum / length;
-
-    jdouble sumOfSquares = 0.0;
-    for (jsize i = 0; i < length; i++) {
-        sumOfSquares += (elements[i] - avg) * (elements[i] - avg);
-    }
+    double stddev = standardDeviation(elements, length);
 
     env->ReleaseDoubleArrayElements(numbers, elements, 0);
-    delete elements;
 
+    return stddev;
+}
 
-    return sqrt(sumOfSquares / (length - 1));
+JNIEXPORT jdouble JNICALL
+Java_more_math_native_model_NativeProvider_cppTetraction(JNIEnv *env, jobject thiz, jdouble number,
+                                                         jint other) {
+    return tetraction(static_cast<double>(number), static_cast<int>(other));
+}
+
+JNIEXPORT jint JNICALL
+Java_more_math_native_model_NativeProvider_cppGcd(JNIEnv *env, jobject thiz, jint a, jint b) {
+    return gcd(a, b);
+}
 }

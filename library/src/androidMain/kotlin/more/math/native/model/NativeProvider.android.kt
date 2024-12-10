@@ -17,6 +17,10 @@ internal actual class NativeProvider actual constructor() {
 
     private external fun cppStandardDeviation(vararg numbers: Double) : Double
 
+    private external fun cppTetraction(number: Double, other: Int) : Double
+
+    private external fun cppGcd(a: Int, b: Int) : Int
+
     actual fun nativeFactorial(number: Int): Long {
         return cppFactorial(number = number)
     }
@@ -31,5 +35,13 @@ internal actual class NativeProvider actual constructor() {
 
     actual fun standardDeviation(vararg numbers: Double) : Double {
         return cppStandardDeviation(*numbers)
+    }
+
+    actual fun tetraction(number: Double, other: Int) : Double {
+        return cppTetraction(number = number, other = other)
+    }
+
+    actual fun gcd(a: Int, b: Int): Int {
+        return cppGcd(a, b)
     }
 }
