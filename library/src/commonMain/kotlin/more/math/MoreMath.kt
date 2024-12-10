@@ -23,7 +23,7 @@ public object MoreMath {
 
     public fun factorial(n: Long): Long {
         factorialParent.verifyFactorial(n)
-        return if (n == 0L) 1L else n * factorial(n - 1L)
+        return nativeProvider.nativeFactorial(number = n)
     }
 
     public fun bigFactorial(n: Long): BigInt {
@@ -57,13 +57,11 @@ public object MoreMath {
     }
 
     public fun average(vararg numbers: Int): Double {
-        return numbers.average()
+        return nativeProvider.nativeAverage(*numbers)
     }
 
     public fun standardDeviation(vararg numbers: Double): Double {
-        val avg = numbers.average()
-        val sumOfSquares = numbers.sumOf { (it - avg) * (it - avg) }
-        return kotlin.math.sqrt(sumOfSquares / (numbers.size - 1))
+        return nativeProvider.standardDeviation(*numbers)
     }
 
     //Нок

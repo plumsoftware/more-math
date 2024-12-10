@@ -5,5 +5,11 @@ internal expect class NativeProvider constructor() {
 
     //region::hyper operators
     fun nativeFactorial(number: Int): Long
+
+    fun nativeFactorial(number: Long): Long
+
+    fun nativeAverage(vararg numbers: Int) : Double
+
+    fun standardDeviation(vararg numbers: Double) : Double
     //endregion
 }
