@@ -8,6 +8,7 @@
 # More math
 
 Kotlin multiplatform library adding mathematical operations with matrices, vectors, combinatorics and much more.
+![Telegram](https://github.com/plumsoftware/more-math/blob/develop-v0.0.1/docs/images/telegram.svg)  Telegram emoji are available below the link https://t.me/addemoji/RkIQSnNfAAA
 
 ![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)
 <br>Telegram emoji are available below the link https://t.me/addemoji/RkIQSnNfAAA
