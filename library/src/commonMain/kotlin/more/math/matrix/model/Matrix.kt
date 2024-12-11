@@ -173,4 +173,16 @@ public class Matrix<R>(vararg var rows: MutableList<R>) : MatrixParent() {
         }
         return result
     }
+
+    fun find(predicate: (R) -> Boolean): R? {
+        for (row in rows.indices) {
+            for (column in rows[row].indices) {
+                val el = rows[row][column]
+                if (predicate(el)){
+                    return el
+                }
+            }
+        }
+        return null
+    }
 }
